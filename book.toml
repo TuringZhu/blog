@@ -1,0 +1,5 @@
+[book]
+authors = ["Turing Zhu"]
+multilingual = false
+src = "src"
+title = "Turing Zhu's Blog"
