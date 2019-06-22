@@ -9,7 +9,7 @@ branches:
   only:
   - master
 script:
-  - ./script/mdbook build
+  - ./bin/mdbook build
 deploy:
   provider: pages
   local-dir: book
