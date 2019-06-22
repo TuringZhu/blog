@@ -1,0 +1,3 @@
+# Life
+
+- [Music](music.md)

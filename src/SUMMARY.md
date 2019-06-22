@@ -13,4 +13,5 @@
 - [Devops](./devops.md)
 - [Test](./test.md)
 - [Linux](./linux.md)
-- [Life](./life.md)
+- [Life](life/index.md)
+  - [Music](life/music.md)
