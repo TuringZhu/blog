@@ -1,6 +1,6 @@
 # Summary
 
-- [Introduction.md](./introduction.md)
+- [Introduction](./introduction.md)
 - [Operating System](./os.md)
 - [Network](./network.md)
 - [Data Structure](./data_structure.md)
