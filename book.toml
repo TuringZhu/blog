@@ -3,3 +3,14 @@ authors = ["Turing Zhu"]
 multilingual = false
 src = "src"
 title = "Turing Zhu's Blog"
+default-theme = "rust"
+
+[build]
+build-dir = "book"
+create-missing = true
+
+[output.html]
+git-repository-url = "https://github.com/Turing-Chu/blog"
+git-repository-icon = "fa-github"
+default-theme = "rust"
+
