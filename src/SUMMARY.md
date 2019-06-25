@@ -10,6 +10,7 @@
   - [python](./programming_language/python.md)
   - [golang](./programming_language/golang.md)
   - [shell](./programming_language/shell.md)
+- [git](git/index.md)
 - [Devops](devops/index.md)
   - [API-DOC-SPEC](devops/api_doc_spec.md)
 - [Test](./test.md)
