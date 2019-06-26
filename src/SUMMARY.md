@@ -17,5 +17,7 @@
 - [Test](./test.md)
 - [Linux](linux/index.md)
   - [vim](linux/vim.md)
+- [Others](others/index.md)
+  - [markdown](others/markdown.md)
 - [Life](life/index.md)
   - [Music](life/music.md)
