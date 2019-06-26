@@ -14,6 +14,7 @@
 - [Devops](devops/index.md)
   - [API-DOC-SPEC](devops/api_doc_spec.md)
 - [Test](./test.md)
-- [Linux](./linux.md)
+- [Linux](linux/index.md)
+  - [vim](linux/vim.md)
 - [Life](life/index.md)
   - [Music](life/music.md)
