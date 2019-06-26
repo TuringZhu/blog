@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Others - Turing Zhu's Blog</title>
+        <title>commit specification - Turing Zhu's Blog</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../os.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="../network.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="../data_structure.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="../algorithm.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="../database.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="../programming_language/index.html"><strong aria-hidden="true">7.</strong> Programming Language</a></li><li><ol class="section"><li><a href="../programming_language/python.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><a href="../programming_language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="../programming_language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="../programming_language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="../git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="../git/commit_specification.html"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="../git/hooks.html"><strong aria-hidden="true">8.2.</strong> hooks</a></li></ol></li><li><a href="../devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="../devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li></ol></li><li><a href="../test.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li></ol></li><li><a href="../others/index.html" class="active"><strong aria-hidden="true">12.</strong> Others</a></li><li><ol class="section"><li><a href="../others/markdown.html"><strong aria-hidden="true">12.1.</strong> markdown</a></li></ol></li><li><a href="../life/index.html"><strong aria-hidden="true">13.</strong> Life</a></li><li><ol class="section"><li><a href="../life/music.html"><strong aria-hidden="true">13.1.</strong> Music</a></li></ol></li></ol>
+                <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../os.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="../network.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="../data_structure.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="../algorithm.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="../database.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="../programming_language/index.html"><strong aria-hidden="true">7.</strong> Programming Language</a></li><li><ol class="section"><li><a href="../programming_language/python.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><a href="../programming_language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="../programming_language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="../programming_language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="../git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="../git/commit_specification.html" class="active"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="../git/hooks.html"><strong aria-hidden="true">8.2.</strong> hooks</a></li></ol></li><li><a href="../devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="../devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li></ol></li><li><a href="../test.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li></ol></li><li><a href="../others/index.html"><strong aria-hidden="true">12.</strong> Others</a></li><li><ol class="section"><li><a href="../others/markdown.html"><strong aria-hidden="true">12.1.</strong> markdown</a></li></ol></li><li><a href="../life/index.html"><strong aria-hidden="true">13.</strong> Life</a></li><li><ol class="section"><li><a href="../life/music.html"><strong aria-hidden="true">13.1.</strong> Music</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,23 +149,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#others" id="others">Others</a></h1>
+                        <h1><a class="header" href="#git-commit-specification" id="git-commit-specification">git commit specification</a></h1>
+<blockquote>
+<p>All commit message lines will be cropped at 100 characters.</p>
+<p>Reference: <a href="https://github.com/commitizen/cz-cli">cz-cli</a></p>
+</blockquote>
+<h2><a class="header" href="#specification" id="specification">Specification</a></h2>
 <ul>
-<li><a href="markdown.html">markdown</a></li>
+<li><code>feat</code>: A new feature</li>
+<li><code>fix</code>: A bug fix</li>
+<li><code>docs</code>: Documentation only changes</li>
+<li><code>style</code>: Changes that do not affect the meaning of the code(white-space, formatting, missing semi-colons, string value, etc)</li>
+<li><code>refactor</code>: A code change that neither fixes a bug or adds a feature</li>
+<li><code>perf</code>: A code change that imporves performance</li>
+<li><code>test</code>: Adding missing tests</li>
+<li><code>chore</code>: Changes to the build process or auxiliary tools and libraries such as documentation generation</li>
 </ul>
+<h2><a class="header" href="#example" id="example">Example</a></h2>
+<pre><code class="language-text">[fix] a bug fix
+
+fix:a bug fix
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../linux/vim.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../git/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../others/markdown.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../git/hooks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -177,13 +194,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../linux/vim.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../git/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../others/markdown.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../git/hooks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

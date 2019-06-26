@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Others - Turing Zhu's Blog</title>
+        <title>hooks - Turing Zhu's Blog</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../os.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="../network.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="../data_structure.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="../algorithm.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="../database.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="../programming_language/index.html"><strong aria-hidden="true">7.</strong> Programming Language</a></li><li><ol class="section"><li><a href="../programming_language/python.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><a href="../programming_language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="../programming_language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="../programming_language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="../git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="../git/commit_specification.html"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="../git/hooks.html"><strong aria-hidden="true">8.2.</strong> hooks</a></li></ol></li><li><a href="../devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="../devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li></ol></li><li><a href="../test.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li></ol></li><li><a href="../others/index.html" class="active"><strong aria-hidden="true">12.</strong> Others</a></li><li><ol class="section"><li><a href="../others/markdown.html"><strong aria-hidden="true">12.1.</strong> markdown</a></li></ol></li><li><a href="../life/index.html"><strong aria-hidden="true">13.</strong> Life</a></li><li><ol class="section"><li><a href="../life/music.html"><strong aria-hidden="true">13.1.</strong> Music</a></li></ol></li></ol>
+                <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../os.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="../network.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="../data_structure.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="../algorithm.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="../database.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="../programming_language/index.html"><strong aria-hidden="true">7.</strong> Programming Language</a></li><li><ol class="section"><li><a href="../programming_language/python.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><a href="../programming_language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="../programming_language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="../programming_language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="../git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="../git/commit_specification.html"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="../git/hooks.html" class="active"><strong aria-hidden="true">8.2.</strong> hooks</a></li></ol></li><li><a href="../devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="../devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li></ol></li><li><a href="../test.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li></ol></li><li><a href="../others/index.html"><strong aria-hidden="true">12.</strong> Others</a></li><li><ol class="section"><li><a href="../others/markdown.html"><strong aria-hidden="true">12.1.</strong> markdown</a></li></ol></li><li><a href="../life/index.html"><strong aria-hidden="true">13.</strong> Life</a></li><li><ol class="section"><li><a href="../life/music.html"><strong aria-hidden="true">13.1.</strong> Music</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,9 +149,63 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#others" id="others">Others</a></h1>
+                        <h1><a class="header" href="#git-hooks" id="git-hooks">git hooks</a></h1>
+<h2><a class="header" href="#format-golang-code-before-commit" id="format-golang-code-before-commit">format golang code before commit</a></h2>
+<p>the following code auto format go source code.</p>
+<pre><code class="language-shell">#!/bin/bash
+
+source ~/.bash_profile
+
+
+# get changed go files
+# https://git-scm.com/docs/git-diff#Documentation/git-diff.txt---diff-filterACDMRTUXB82308203
+# Add Copy Modify
+gofiles=$(git diff --cached --name-only --diff-filter=ACM | grep '.go$')
+[ -z &quot;$gofiles&quot; ] &amp;&amp; exit 0
+
+# get unformatted go files
+unformatted=$(gofmt -l $gofiles)
+[ -z &quot;$unformatted&quot; ] &amp;&amp; exit 0
+
+# format go files and auto add to cache
+for fn in $unformatted;do
+    echo &quot;format file: ${fn}&quot;
+    gofmt -w &quot;${PWD}/${fn}&quot;
+    [[ $? -ne 0 ]] &amp;&amp; exit 1
+    git add ${fn}
+done
+</code></pre>
+<h3><a class="header" href="#git-rebase-merge-commits" id="git-rebase-merge-commits">git rebase: merge commits</a></h3>
 <ul>
-<li><a href="markdown.html">markdown</a></li>
+<li>git rebase -i HEAD~2</li>
+<li>select Strategy</li>
+<li>git push origin branch-name --force</li>
+</ul>
+<pre><code class="language-text">pick c586193 [fix] fix bug 1
+pick 48dbe49 [feat] add new feature
+
+# Rebase 96bbce5..48dbe49 onto 96bbce5 (2 commands)
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like &quot;squash&quot;, but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out
+</code></pre>
+<p>other option </p>
+<ul>
+<li>abort: git rebase --abort</li>
 </ul>
 
                     </main>
@@ -159,13 +213,13 @@
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../linux/vim.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../git/commit_specification.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../others/markdown.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../devops/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -177,13 +231,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../linux/vim.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../git/commit_specification.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../others/markdown.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../devops/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
