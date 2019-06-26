@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>markdown - Turing Zhu's Blog</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="rust">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../os.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="../network.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="../data_structure.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="../algorithm.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="../database.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="../programming_language/index.html"><strong aria-hidden="true">7.</strong> Programming Language</a></li><li><ol class="section"><li><a href="../programming_language/python.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><a href="../programming_language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="../programming_language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="../programming_language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="../git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><a href="../devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="../devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li></ol></li><li><a href="../test.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li></ol></li><li><a href="../others/index.html"><strong aria-hidden="true">12.</strong> Others</a></li><li><ol class="section"><li><a href="../others/markdown.html" class="active"><strong aria-hidden="true">12.1.</strong> markdown</a></li></ol></li><li><a href="../life/index.html"><strong aria-hidden="true">13.</strong> Life</a></li><li><ol class="section"><li><a href="../life/music.html"><strong aria-hidden="true">13.1.</strong> Music</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Turing Zhu's Blog</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                            <a href="https://github.com/Turing-Chu/blog" title="Git repository" aria-label="Git repository">
+                                <i id="git-repository-button" class="fa fa-github"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#markdown-grammer" id="markdown-grammer">markdown grammer</a></h1>
+<h3><a class="header" href="#line-breaks" id="line-breaks">Line Breaks</a></h3>
+<p>To force a line break, put two spaces and a newline (return) at the end of the line.</p>
+<ul>
+<li>
+<p>This two-line bullet 
+won't break</p>
+</li>
+<li>
+<p>This two-line bullet<br />
+will break</p>
+</li>
+</ul>
+<p>Here is the code:</p>
+<pre><code>* This two-line bullet 
+won't break
+
+* This two-line bullet  
+will break
+</code></pre>
+<h3><a class="header" href="#strong-and-emphasize" id="strong-and-emphasize">Strong and Emphasize</a></h3>
+<p><strong>Strong</strong>: <code>**Strong**</code> or <code>__Strong__</code> (Command-B)<br />
+<em>Emphasize</em>: <code>*Emphasize*</code> or <code>_Emphasize_</code><sup class="footnote-reference"><a href="#emphasize">1</a></sup> (Command-I)</p>
+<h3><a class="header" href="#headers-like-this-one" id="headers-like-this-one">Headers (like this one!)</a></h3>
+<pre><code>Header 1
+========
+
+Header 2
+--------
+</code></pre>
+<p>or</p>
+<pre><code># Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+###### Header 6
+</code></pre>
+<h3><a class="header" href="#links-and-email" id="links-and-email">Links and Email</a></h3>
+<h4><a class="header" href="#inline" id="inline">Inline</a></h4>
+<p>Just put angle brackets around an email and it becomes clickable: <a href="mailto:uranusjr@gmail.com">uranusjr@gmail.com</a><br />
+<code>&lt;uranusjr@gmail.com&gt;</code></p>
+<p>Same thing with urls: <a href="http://macdown.uranusjr.com">http://macdown.uranusjr.com</a><br />
+<code> &lt;http://macdown.uranusjr.com&gt;</code></p>
+<p>Perhaps you want to some link text like this: <a href="http://macdown.uranusjr.com" title="Title">Macdown Website</a><br />
+<code>[Macdown Website](http://macdown.uranusjr.com &quot;Title&quot;)</code> (The title is optional)</p>
+<h4><a class="header" href="#reference-style" id="reference-style">Reference style</a></h4>
+<p>Sometimes it looks too messy to include big long urls inline, or you want to keep all your urls together.</p>
+<p>Make <a href="http://macdown.uranusjr.com" title="Title">a link</a> <code>[a link][arbitrary_id]</code> then on it's own line anywhere else in the file:<br />
+<code>[arbitrary_id]: http://macdown.uranusjr.com &quot;Title&quot;</code></p>
+<p>If the link text itself would make a good id, you can link <a href="http://macdown.uranusjr.com">like this</a> <code>[like this][]</code>, then on it's own line anywhere else in the file:<br />
+<code>[like this]: http://macdown.uranusjr.com</code></p>
+<h3><a class="header" href="#images" id="images">Images</a></h3>
+<h4><a class="header" href="#inline-1" id="inline-1">Inline</a></h4>
+<p><code>![Alt Image Text](path/or/url/to.jpg &quot;Optional Title&quot;)</code></p>
+<h4><a class="header" href="#reference-style-1" id="reference-style-1">Reference style</a></h4>
+<p><code>![Alt Image Text][image-id]</code><br />
+on it's own line elsewhere:<br />
+<code>[image-id]: path/or/url/to.jpg &quot;Optional Title&quot;</code></p>
+<h3><a class="header" href="#lists" id="lists">Lists</a></h3>
+<ul>
+<li>Lists must be preceded by a blank line (or block element)</li>
+<li>Unordered lists start each item with a <code>*</code></li>
+</ul>
+<ul>
+<li><code>-</code> works too
+<ul>
+<li>Indent a level to make a nested list
+<ol>
+<li>Ordered lists are supported.</li>
+<li>Start each item (number-period-space) like <code>1. </code></li>
+<li>It doesn't matter what number you use, I will render them sequentially</li>
+<li>So you might want to start each line with <code>1.</code> and let me sort it out</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>Here is the code:</p>
+<pre><code>* Lists must be preceded by a blank line (or block element)
+* Unordered lists start each item with a `*`
+- `-` works too
+   * Indent a level to make a nested list
+   	1. Ordered lists are supported.
+   	2. Start each item (number-period-space) like `1. `
+   	42. It doesn't matter what number you use, I will render them sequentially
+   	1. So you might want to start each line with `1.` and let me sort it out
+</code></pre>
+<h3><a class="header" href="#block-quote" id="block-quote">Block Quote</a></h3>
+<blockquote>
+<p>Angle brackets <code>&gt;</code> are used for block quotes.<br />
+Technically not every line needs to start with a <code>&gt;</code> as long as
+there are no empty lines between paragraphs.<br />
+Looks kinda ugly though.</p>
+<blockquote>
+<p>Block quotes can be nested.</p>
+<blockquote>
+<p>Multiple Levels</p>
+</blockquote>
+</blockquote>
+<p>Most markdown syntaxes work inside block quotes.</p>
+<ul>
+<li>Lists</li>
+<li><a href="http://macdown.uranusjr.com" title="Title">Links</a></li>
+<li>Etc.</li>
+</ul>
+</blockquote>
+<p>Here is the code:</p>
+<pre><code>&gt; Angle brackets `&gt;` are used for block quotes.  
+Technically not every line needs to start with a `&gt;` as long as
+there are no empty lines between paragraphs.  
+&gt; Looks kinda ugly though.
+&gt; &gt; Block quotes can be nested.  
+&gt; &gt; &gt; Multiple Levels
+&gt;
+&gt; Most markdown syntaxes work inside block quotes.
+&gt;
+&gt; * Lists
+&gt; * [Links][arbitrary_id]
+&gt; * Etc.
+</code></pre>
+<h3><a class="header" href="#inline-code" id="inline-code">Inline Code</a></h3>
+<p><code>Inline code</code> is indicated by surrounding it with backticks:<br />
+<code>`Inline code`</code></p>
+<p>If your <code>code has `backticks` </code> that need to be displayed, you can use double backticks:<br />
+<code>``Code with `backticks` ``</code>  (mind the spaces preceding the final set of backticks)</p>
+<h3><a class="header" href="#block-code" id="block-code">Block Code</a></h3>
+<p>If you indent at least four spaces or one tab, I'll display a code block.</p>
+<pre><code>print('This is a code block')
+print('The block must be preceded by a blank line')
+print('Then indent at least 4 spaces or 1 tab')
+	print('Nesting does nothing. Your code is displayed Literally')
+</code></pre>
+<p>I also know how to do something called <a href="#fenced-code-block">Fenced Code Blocks</a> which I will tell you about later.</p>
+<h3><a class="header" href="#horizontal-rules" id="horizontal-rules">Horizontal Rules</a></h3>
+<p>If you type three asterisks <code>***</code> or three dashes <code>---</code> on a line, I'll display a horizontal rule:</p>
+<hr />
+<h2><a class="header" href="#a-namemarkdown-paneathe-markdown-preference-pane" id="a-namemarkdown-paneathe-markdown-preference-pane"><a name="markdown-pane"></a>The Markdown Preference Pane</a></h2>
+<p>This is where I keep all preferences related to how I parse markdown into html.<br />
+<img src="http://d.pr/i/RQEi+" alt="Markdown preferences pane" /></p>
+<h3><a class="header" href="#document-formatting" id="document-formatting">Document Formatting</a></h3>
+<p>The <em><strong>Smartypants</strong></em> extension automatically transforms straight quotes (<code>&quot;</code> and <code>'</code>) in your text into typographer’s quotes (<code>“</code>, <code>”</code>, <code>‘</code>, and <code>’</code>) according to the context. Very useful if you’re a typography freak like I am. Quote and Smartypants are syntactically incompatible. If both are enabled, Quote takes precedence.</p>
+<h3><a class="header" href="#block-formatting" id="block-formatting">Block Formatting</a></h3>
+<h4><a class="header" href="#table" id="table">Table</a></h4>
+<p>This is a table:</p>
+<table><thead><tr><th>First Header</th><th>Second Header</th></tr></thead><tbody>
+<tr><td>Content Cell</td><td>Content Cell</td></tr>
+<tr><td>Content Cell</td><td>Content Cell</td></tr>
+</tbody></table>
+<p>You can align cell contents with syntax like this:</p>
+<table><thead><tr><th align="left">Left Aligned</th><th align="center">Center Aligned</th><th align="right">Right Aligned</th></tr></thead><tbody>
+<tr><td align="left">col 3 is</td><td align="center">some wordy text</td><td align="right">$1600</td></tr>
+<tr><td align="left">col 2 is</td><td align="center">centered</td><td align="right">$12</td></tr>
+<tr><td align="left">zebra stripes</td><td align="center">are neat</td><td align="right">$1</td></tr>
+</tbody></table>
+<p>The left- and right-most pipes (<code>|</code>) are only aesthetic, and can be omitted. The spaces don’t matter, either. Alignment depends solely on <code>:</code> marks.</p>
+<h4><a class="header" href="#a-namefenced-code-blockfenced-code-blocka" id="a-namefenced-code-blockfenced-code-blocka"><a name="fenced-code-block">Fenced Code Block</a></a></h4>
+<p>This is a fenced code block:</p>
+<pre><code>print('Hello world!')
+</code></pre>
+<p>You can also use waves (<code>~</code>) instead of back ticks (<code>`</code>):</p>
+<pre><code>print('Hello world!')
+</code></pre>
+<p>You can add an optional language ID at the end of the first line. The language ID will only be used to highlight the code inside if you tick the <em><strong>Enable highlighting in code blocks</strong></em> option. This is what happens if you enable it:</p>
+<p><img src="http://d.pr/i/9HM6+" alt="Syntax highlighting example" /></p>
+<p>I support many popular languages as well as some generic syntax descriptions that can be used if your language of choice is not supported. See <a href="http://macdown.uranusjr.com/features/">relevant sections on the official site</a> for a full list of supported syntaxes.</p>
+<h3><a class="header" href="#inline-formatting" id="inline-formatting">Inline Formatting</a></h3>
+<p>The following is a list of optional inline markups supported:</p>
+<table><thead><tr><th>Option name</th><th>Markup</th><th>Result if enabled</th></tr></thead><tbody>
+<tr><td>Intra-word emphasis</td><td>So A*maz*ing</td><td>So A<em>maz</em>ing</td></tr>
+<tr><td>Strikethrough</td><td>~~Much wow~~</td><td><del>Much wow</del></td></tr>
+<tr><td>Underline <sup class="footnote-reference"><a href="#under">2</a></sup></td><td>_So doge_</td><td><u>So doge</u></td></tr>
+<tr><td>Quote <sup class="footnote-reference"><a href="#quote">3</a></sup></td><td>&quot;Such editor&quot;</td><td><q>Such editor</q></td></tr>
+<tr><td>Highlight</td><td>==So good==</td><td><mark>So good</mark></td></tr>
+<tr><td>Superscript</td><td>hoge^(fuga)</td><td>hoge<sup>fuga</sup></td></tr>
+<tr><td>Autolink</td><td>http://t.co</td><td><a href="http://t.co">http://t.co</a></td></tr>
+<tr><td>Footnotes</td><td>[^4] and [^4]:</td><td><sup class="footnote-reference"><a href="#4">4</a></sup> and footnote 4</td></tr>
+</tbody></table>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>You don't have to use a number. Arbitrary things like <code>[^footy note4]</code> and <code>[^footy note4]:</code> will also work. But they will <em>render</em> as numbered footnotes. Also, no need to keep your footnotes in order, I will sort out the order for you so they appear in the same order they were referenced in the text body. You can even keep some footnotes near where you referenced them, and collect others at the bottom of the file in the traditional place for footnotes. </p>
+</div>
+<h2><a class="header" href="#a-namerendering-paneathe-rendering-preference-pane" id="a-namerendering-paneathe-rendering-preference-pane"><a name="rendering-pane"></a>The Rendering Preference Pane</a></h2>
+<p>This is where I keep preferences relating to how I render and style the parsed markdown in the preview window.<br />
+<img src="http://d.pr/i/rT4d+" alt="Rendering preferences pane" /></p>
+<h3><a class="header" href="#css" id="css">CSS</a></h3>
+<p>You can choose different css files for me to use to render your html. You can even customize or add your own custom css files.</p>
+<h3><a class="header" href="#syntax-highlighting" id="syntax-highlighting">Syntax Highlighting</a></h3>
+<p>You have already seen how I can syntax highlight your fenced code blocks. See the <a href="#fenced-code-block">Fenced Code Block</a> section if you haven’t! You can also choose different themes for syntax highlighting.</p>
+<h3><a class="header" href="#tex-like-math-syntax" id="tex-like-math-syntax">TeX-like Math Syntax</a></h3>
+<p>I can also render TeX-like math syntaxes, if you allow me to.<sup class="footnote-reference"><a href="#math">5</a></sup> I can do inline math like this: \( 1 + 1 \) or this (in MathML): <math><mn>1</mn><mo>+</mo><mn>1</mn></math>, and block math:</p>
+<p>\[
+A^T_S = B
+\]</p>
+<p>or (in MathML)</p>
+<math display="block">
+    <msubsup><mi>A</mi> <mi>S</mi> <mi>T</mi></msubsup>
+    <mo>=</mo>
+    <mi>B</mi>
+</math>
+<h3><a class="header" href="#task-list-syntax" id="task-list-syntax">Task List Syntax</a></h3>
+<ol>
+<li><input disabled="" type="checkbox" checked=""/>
+I can render checkbox list syntax
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+I support nesting</li>
+<li><input disabled="" type="checkbox" checked=""/>
+I support ordered <em>and</em> unordered lists</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+I don't support clicking checkboxes directly in the html window</li>
+</ol>
+<h3><a class="header" href="#jekyll-front-matter" id="jekyll-front-matter">Jekyll front-matter</a></h3>
+<p>If you like, I can display Jekyll front-matter in a nice table. Just make sure you put the front-matter at the very beginning of the file, and fence it with <code>---</code>. For example:</p>
+<pre><code>---
+title: &quot;Macdown is my friend&quot;
+date: 2014-06-06 20:00:00
+---
+</code></pre>
+<h3><a class="header" href="#render-newline-literally" id="render-newline-literally">Render newline literally</a></h3>
+<p>Normally I require you to put two spaces and a newline (aka return) at the end of a line in order to create a line break. If you like, I can render a newline any time you end a line with a newline. However, if you enable this, markdown that looks lovely when I render it might look pretty funky when you let some <em>other</em> program render it.</p>
+<h2><a class="header" href="#a-namegeneral-paneathe-general-preferences-pane" id="a-namegeneral-paneathe-general-preferences-pane"><a name="general-pane"></a>The General Preferences Pane</a></h2>
+<p>This is where I keep preferences related to application behavior.<br />
+<img src="http://d.pr/i/rvwu+" alt="General preferences pane" /></p>
+<p>The General Preferences Pane allows you to tell me how you want me to behave. For example, do you want me to make sure there is a document open when I launch? You can also tell me if I should constantly update the preview window as you type, or wait for you to hit <code>command-R</code> instead. Maybe you prefer your editor window on the right? Or to see the word-count as you type. This is also the place to tell me if you are interested in pre-releases of me, or just want to stick to better-tested official releases.</p>
+<h2><a class="header" href="#a-nameeditor-paneathe-editor-preference-pane" id="a-nameeditor-paneathe-editor-preference-pane"><a name="editor-pane"></a>The Editor Preference Pane</a></h2>
+<p>This is where I keep preferences related to the behavior and styling of the editing window.<br />
+<img src="http://d.pr/i/6OL5+" alt="Editor preferences pane" /></p>
+<h3><a class="header" href="#styling" id="styling">Styling</a></h3>
+<p>My editor provides syntax highlighting. You can edit the base font and the coloring/sizing theme. I provided some default themes (courtesy of <a href="http://mouapp.com">Mou</a>’s creator, Chen Luo) if you don’t know where to start.</p>
+<p>You can also edit, or even add new themes if you want to! Just click the <em><strong>Reveal</strong></em> button, and start moving things around. Remember to use the correct file extension (<code>.styles</code>), though. I’m picky about that.</p>
+<p>I offer auto-completion and other functions to ease your editing experience. If you don’t like it, however, you can turn them off.</p>
+<h2><a class="header" href="#hack-on" id="hack-on">Hack On</a></h2>
+<p>That’s about it. Thanks for listening. I’ll be quiet from now on (unless there’s an update about the app—I’ll remind you for that!).</p>
+<p>Happy writing!</p>
+<div class="footnote-definition" id="emphasize"><sup class="footnote-definition-label">1</sup>
+<p>If <strong>Underlines</strong> is turned on, <code>_this notation_</code> will render as underlined instead of emphasized </p>
+</div>
+<div class="footnote-definition" id="under"><sup class="footnote-definition-label">2</sup>
+<p>If <strong>Underline</strong> is disabled <code>_this_</code> will be rendered as <em>emphasized</em> instead of being underlined.</p>
+</div>
+<div class="footnote-definition" id="quote"><sup class="footnote-definition-label">3</sup>
+<p><strong>Quote</strong> replaces literal <code>&quot;</code> characters with html <code>&lt;q&gt;</code> tags. <strong>Quote</strong> and <strong>Smartypants</strong> are syntactically incompatible. If both are enabled, <strong>Quote</strong> takes precedence. Note that <strong>Quote</strong> is different from <em>blockquote</em>, which is part of standard Markdown.</p>
+</div>
+<div class="footnote-definition" id="math"><sup class="footnote-definition-label">5</sup>
+<p>Internet connection required.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../others/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../life/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../others/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../life/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
