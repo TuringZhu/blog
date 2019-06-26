@@ -15,58 +15,29 @@
 
 ## vim shortcut in vim terminal
 
-- A  
+#### Searching
+#### Inserting
+#### Replacing
+#### Selecting
+#### Copying
+#### Pasting
+#### Deleting
+#### Paging
+- A Append
 - a
-- B
 - b
-- C
-- c
-- D
-- d
-- E
-- e
-- F
-- f
-- G
-- g
-- H
-- h
-- I
-- i
-- J
-- j
-- K
-- k
-- L
-- l
-- M
-- m
-- N
-- n
-- O
-- o
-- P
-- p
-- Q
-- q
-- R
+- B
 - r
-- S
-- s
-- T
-- t
-- U
+- i
+- I
+- o 
+- O
+- p
 - u
-- V
 - v
-- W
+- V
 - w
-- X
-- x
-- Y
-- y
-- Z
-- z
+- W
 
 ## vim command in vim terminal
 
