@@ -19,6 +19,7 @@
 | item | specipitation | comment | 
 | --- | --- | --- |
 | file  | snake | 
+| URL | snake |
 | database | snake |
 | table | snake |
 | field |snake | json and table in database |
