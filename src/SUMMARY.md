@@ -16,6 +16,7 @@
   - [hooks](git/hooks.md)
 - [Devops](devops/index.md)
   - [API-DOC-SPEC](devops/api_doc_spec.md)
+  - [Code Clean Note](devops/code_clean.md)
 - [Test](./test.md)
 - [Linux](linux/index.md)
   - [vim](linux/vim.md)
