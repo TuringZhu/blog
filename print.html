@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="os.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="network.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="data_structure.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="algorithm.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="database.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="programming_language/index.html"><strong aria-hidden="true">7.</strong> Programming Language</a></li><li><ol class="section"><li><a href="programming_language/python.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><a href="programming_language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="programming_language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="programming_language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="git/commit_specification.html"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="git/hooks.html"><strong aria-hidden="true">8.2.</strong> hooks</a></li></ol></li><li><a href="devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li></ol></li><li><a href="test.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li></ol></li><li><a href="others/index.html"><strong aria-hidden="true">12.</strong> Others</a></li><li><ol class="section"><li><a href="others/markdown.html"><strong aria-hidden="true">12.1.</strong> markdown</a></li></ol></li><li><a href="life/index.html"><strong aria-hidden="true">13.</strong> Life</a></li><li><ol class="section"><li><a href="life/music.html"><strong aria-hidden="true">13.1.</strong> Music</a></li></ol></li></ol>
+                <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="os.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="network.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="data_structure.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="algorithm.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="database.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="programming_language/index.html"><strong aria-hidden="true">7.</strong> Programming Language</a></li><li><ol class="section"><li><a href="programming_language/python.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><a href="programming_language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="programming_language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="programming_language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="git/commit_specification.html"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="git/hooks.html"><strong aria-hidden="true">8.2.</strong> hooks</a></li></ol></li><li><a href="devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li><li><a href="devops/code_clean.html"><strong aria-hidden="true">9.2.</strong> Code Clean Note</a></li></ol></li><li><a href="test.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li></ol></li><li><a href="others/index.html"><strong aria-hidden="true">12.</strong> Others</a></li><li><ol class="section"><li><a href="others/markdown.html"><strong aria-hidden="true">12.1.</strong> markdown</a></li></ol></li><li><a href="life/index.html"><strong aria-hidden="true">13.</strong> Life</a></li><li><ol class="section"><li><a href="life/music.html"><strong aria-hidden="true">13.1.</strong> Music</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -260,6 +260,7 @@ pick 48dbe49 [feat] add new feature
 <h1><a class="header" href="#devops" id="devops">Devops</a></h1>
 <ul>
 <li><a href="devops/api_doc_spec.html">API Documention Specification &amp; What problems should be considered for your readers when write an api documention?</a></li>
+<li><a href="devops/code_clean.html">Code Clean Note</a></li>
 </ul>
 <h1><a class="header" href="#what-problems-should-api-documention-consider" id="what-problems-should-api-documention-consider">What Problems should API Documention consider？</a></h1>
 <pre><code>Author: Turing Zhu
@@ -347,6 +348,62 @@ Description: API Document Specification
 }
 </code></pre>
 <h3><a class="header" href="#error-" id="error-">ERROR: ...</a></h3>
+<h1><a class="header" href="#code-clean--code-style" id="code-clean--code-style">Code Clean &amp; Code Style</a></h1>
+<h2><a class="header" href="#naming" id="naming">Naming</a></h2>
+<ol>
+<li>名副其实，如果有更好的名称，则替换掉旧的</li>
+<li>避免与系统变量重名或其他常用名字中</li>
+<li>使用能读的出来的名字</li>
+<li>不要使用前缀</li>
+<li>明确是王道，专业程序眼善用其能，编写其他人能理解的代码</li>
+<li>类名、对象名应该是名词或名词短语</li>
+<li>方法名和函数名应该是动词或动词短语</li>
+<li>言道意到，意到言道</li>
+<li>add insert append的区别，另外create</li>
+<li>只要短名称足够精确，就不要使用长名称</li>
+<li>驼峰式命名 &amp; 蛇形命名</li>
+</ol>
+<h3><a class="header" href="#specipitation" id="specipitation">Specipitation</a></h3>
+<table><thead><tr><th>item</th><th>specipitation</th><th>comment</th></tr></thead><tbody>
+<tr><td>file</td><td>snake</td><td></td></tr>
+<tr><td>database</td><td>snake</td><td></td></tr>
+<tr><td>table</td><td>snake</td><td></td></tr>
+<tr><td>field</td><td>snake</td><td>json and table in database</td></tr>
+<tr><td>constant</td><td>all uppercase with '_'</td><td></td></tr>
+<tr><td>variable</td><td>hump in go, snake in python</td><td>lower first letter, hump or snake</td></tr>
+<tr><td>class</td><td>hump</td><td>upper first letter</td></tr>
+<tr><td>method &amp; function</td><td>hump in go, snake in python</td><td>lower first letter</td></tr>
+<tr><td>instance</td><td>hump in go, snake in python</td><td>lower first letter, humpp or snake</td></tr>
+</tbody></table>
+<h2><a class="header" href="#function" id="function">Function</a></h2>
+<ul>
+<li>函数尽量短小</li>
+<li>if else while for 等语句缩进上不多于1层或2层</li>
+<li>整体缩进能短则短</li>
+<li>函数应该只做一件事，做好一件事，只做这一件事，判断是否只做一件事的标准是：看是否还能拆分出一个函数来</li>
+<li>单一权责原则 Single Resonsibility Principle</li>
+<li>开放闭合原则：Open Closed Priciple</li>
+<li>函数参数：优先零参数，其次单一参数，其次双参数，尽量避免三个及三个以上的参数</li>
+<li>参数多了的问题：1从函数名推断功能，从返回值和返回类型理解函数输出，从参数列表依次看参数名，参数类型，并理解其作用和怎么用</li>
+<li>有些参数2-3个参数刚刚好，比如笛卡儿点，坐标点等</li>
+<li>如果出现三个或三个以上的参数，请考虑封装成结构体</li>
+<li>单一参数函数：建议形成 v+n 的形式</li>
+<li>错误码集中问题：其他地方都得导入和使用它，当ERROR枚举修改时，所有其他类都必须重新编译和部署，这对ERROR类造成一定压力，导致程序员不愿意增加新的错误码而继续使用旧的错误码而导致无法区分错误，建议错误名+错误消息形式，错误码是否有必要？</li>
+<li>消灭重复性的代码</li>
+</ul>
+<h2><a class="header" href="#comment" id="comment">Comment</a></h2>
+<p>The best comment is no comment.</p>
+<h2><a class="header" href="#class-format" id="class-format">Class Format</a></h2>
+<blockquote>
+<p>the order of class member in a class defination</p>
+</blockquote>
+<ul>
+<li>public static constant</li>
+<li>private static constant</li>
+<li>private instance variable</li>
+<li>pulic method</li>
+<li>private method called by public method(followed by corresponding public method)</li>
+</ul>
 <h1><a class="header" href="#linux--shell" id="linux--shell">Linux &amp;&amp; Shell</a></h1>
 <ul>
 <li><a href="linux/vim.html">vim</a></li>
