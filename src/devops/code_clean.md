@@ -8,6 +8,7 @@
 4. 不要使用前缀
 5. 明确是王道，专业程序眼善用其能，编写其他人能理解的代码
 6. 类名、对象名应该是名词或名词短语
+7. 不要出现实际具体值，如1 0 等，用常量名代替，不然看到1完全不理解什么意思
 7. 方法名和函数名应该是动词或动词短语
 8. 言道意到，意到言道
 9. add insert append的区别，另外create
@@ -18,12 +19,12 @@
 
 | item | specipitation | comment | 
 | --- | --- | --- |
-| file  | snake | 
+| file & directory | snake | 
 | URL | snake |
 | database | snake |
 | table | snake |
 | field |snake | json and table in database |
-| constant | all uppercase with '_' |
+| constant | all uppercase with '\_' |
 | variable | hump in go, snake in python | lower first letter, hump or snake |
 | class | hump | upper first letter |
 | method & function | hump in go, snake in python | lower first letter |
@@ -49,7 +50,7 @@
 
 ## Comment
 
-The best comment is no comment.
+The best comment in code is no comment.
 
 ## Class Format
 
