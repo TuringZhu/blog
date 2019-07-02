@@ -22,5 +22,6 @@
   - [vim](linux/vim.md)
 - [Others](others/index.md)
   - [markdown](others/markdown.md)
+  - [What I think Now](others/what_I_think.md)
 - [Life](life/index.md)
   - [Music](life/music.md)
