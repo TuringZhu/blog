@@ -14,6 +14,7 @@
 - [git](git/index.md)
   - [commit specification](git/commit_specification.md)
   - [hooks](git/hooks.md)
+  - [syncing a fork](git/syncing_a_fork.md)
 - [Devops](devops/index.md)
   - [API-DOC-SPEC](devops/api_doc_spec.md)
   - [Code Clean Note](devops/code_clean.md)
