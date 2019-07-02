@@ -774,10 +774,60 @@ date: 2014-06-06 20:00:00
 <blockquote>
 <p>things that I currently Consider.</p>
 </blockquote>
-<ul>
-<li>How to maintaince API documentation and how to keep Synchronization with code? (2019-07-02 10:59:25.600106000 Tue  1562036365)</li>
-<li>Why we do not consider memory size,permance and so on when we coding now?(我们现在编程为什么不再考虑性能、内存大小等问题了呢？2019-07-02 13:02:27.14529000 Tue  1562043747)</li>
-</ul>
+<p>###. How to maintaince API documentation and how to keep Synchronization with code? </p>
+<blockquote>
+<p>2019-07-02 10:59:25.600106000 Tue  1562036365</p>
+</blockquote>
+<pre><code class="language-text">最好的方式是类似在之前深圳公司中，大师的做法，
+所不同的是，大师的做法是规定代码中函数注释中接口文档规范，
+现在是用golang gin框架或beego框架获其他框架，一般会绑定请求参数，无论PUT GET POST 等请求，都会，
+那么可以这样做：定义一些基本规范，然后根据代码生成接口文档
+2019-07-02 15:23:29.804891000 Tue  1562052209
+</code></pre>
+<p>下面是一个gin的示例</p>
+<pre><code class="language-golang">package main
+
+import (
+    &quot;github.com/gin-gonic/gin&quot;
+)
+
+type StructA struct {
+    FieldA string `form:&quot;field_a&quot;`
+}
+
+type StructB struct {
+    NestedStruct StructA
+    FieldB string `form:&quot;field_b&quot;`
+}
+
+func GetDataB(c *gin.Context) {
+    var b StructB
+    c.Bind(&amp;b)
+    c.JSON(200, gin.H{
+        &quot;a&quot;: b.NestedStruct,
+        &quot;b&quot;: b.FieldB,
+    })
+}
+
+func main() {
+    r := gin.Default()
+    r.GET(&quot;/getb&quot;, GetDataB)
+    r.Run()
+}
+
+
+// curl &quot;http://localhost:8080/getb?field_a=hello&amp;field_b=world&quot;
+
+</code></pre>
+<p>那么就可以根据传入参数StructB的结构与所定义的struct tag来获取 请求参数，</p>
+<p>根据路由r.GET(&quot;/getb&quot;, GetDataB) 来获取请求方法和请求路由</p>
+<p><code>那么剩余问题: 如何解决返回数据示例，错误示例？</code>(2019-07-02 15:53:00.772866000 Tue  1562053980)</p>
+<h3><a class="header" href="#why-we-do-not-consider-memory-sizepermance-and-so-on-when-we-coding-now我们现在编程为什么不再考虑性能内存大小等问题了呢" id="why-we-do-not-consider-memory-sizepermance-and-so-on-when-we-coding-now我们现在编程为什么不再考虑性能内存大小等问题了呢">Why we do not consider memory size,permance and so on when we coding now?(我们现在编程为什么不再考虑性能、内存大小等问题了呢？)</a></h3>
+<blockquote>
+<p>2019-07-02 13:02:27.14529000 Tue  1562043747</p>
+</blockquote>
+<pre><code class="language-text">
+</code></pre>
 <h1><a class="header" href="#life" id="life">Life</a></h1>
 <ul>
 <li><a href="life/music.html">Music</a></li>
