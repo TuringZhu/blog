@@ -6,4 +6,5 @@
 - 歲月隨心，一切淡然
 - DO NOT forget who you are and remember who you are.
 - Theory guides the practice, and technology changes the world.
-- 凡事多问个凭什么和为什么
+- 凭什么和为什么理论
+- 程序员思维

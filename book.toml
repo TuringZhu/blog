@@ -3,6 +3,7 @@ authors = ["Turing Zhu"]
 multilingual = false
 src = "src"
 title = "Turing Zhu's Blog"
+description = "Record Turing Zhu's life and learning note."
 default-theme = "rust"
 
 [build]
