@@ -66,3 +66,33 @@ func main() {
 ```text
 
 ```
+
+### how recurive query in mysql ?
+
+> assume that there is a tree which all nodes stored in a table.
+
+
+table:
+
+| nodeId | parentId | other fields |
+| --- | --- | --- |
+| 1 |  | | 
+| 2 | 1 | 
+| 3 | 1 | 
+| 4 | 2 |
+| 5 | 2 |
+| 6 | 3 | 
+| 7 | 5
+
+```
+1
+├── 2
+│   ├── 4
+|   └── 5
+|       └── 7
+└── 3
+    └── 6
+```
+
+- how to find parent from current node?
+- how to find all children from current node? 
