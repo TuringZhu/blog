@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>time format - Turing Zhu's Blog</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Record Turing Zhu's life and learning note.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="rust">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../os/index.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="../network/index.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="../data_structure/index.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="../algorithm/index.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="../database/index.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="../language/index.html"><strong aria-hidden="true">7.</strong> Language</a></li><li><ol class="section"><li><a href="../language/python/index.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><a href="../language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="../language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="../language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="../git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="../git/commit_specification.html"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="../git/hooks.html"><strong aria-hidden="true">8.2.</strong> hooks</a></li><li><a href="../git/syncing_a_fork.html"><strong aria-hidden="true">8.3.</strong> syncing a fork</a></li></ol></li><li><a href="../devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="../devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li><li><a href="../devops/code_clean.html"><strong aria-hidden="true">9.2.</strong> Code Clean Note</a></li></ol></li><li><a href="../test/index.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li></ol></li><li><a href="../blockchain/index.html"><strong aria-hidden="true">12.</strong> Block Chain</a></li><li><a href="../others/index.html"><strong aria-hidden="true">13.</strong> Others</a></li><li><ol class="section"><li><a href="../others/markdown.html"><strong aria-hidden="true">13.1.</strong> markdown</a></li><li><a href="../others/time_format.html" class="active"><strong aria-hidden="true">13.2.</strong> time format</a></li><li><a href="../others/what_I_think.html"><strong aria-hidden="true">13.3.</strong> What I think Now</a></li></ol></li><li><a href="../life/index.html"><strong aria-hidden="true">14.</strong> Life</a></li><li><ol class="section"><li><a href="../life/music.html"><strong aria-hidden="true">14.1.</strong> Music</a></li><li><a href="../life/bother.html"><strong aria-hidden="true">14.2.</strong> Bother</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Turing Zhu's Blog</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                            <a href="https://github.com/Turing-Chu/blog" title="Git repository" aria-label="Git repository">
+                                <i id="git-repository-button" class="fa fa-github"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#time-format" id="time-format">Time Format</a></h1>
+<h2><a class="header" href="#year" id="year">Year</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%Y</td><td>2019</td><td>year</td></tr>
+<tr><td>%y</td><td>19</td><td>年的后2位(00-99)</td></tr>
+<tr><td>%C</td><td>20</td><td>世纪，去掉年份(%Y)后两位</td></tr>
+<tr><td>%g</td><td>19</td><td>年份后2位 ?</td></tr>
+<tr><td>%G</td><td>2019</td><td>同%Y</td></tr>
+</tbody></table>
+<h2><a class="header" href="#month" id="month">Month</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%m</td><td>03</td><td>month(01-12)</td></tr>
+<tr><td>%b</td><td>Mar</td><td>月份缩写</td></tr>
+<tr><td>%B</td><td>March</td><td>月份全称</td></tr>
+<tr><td>%h</td><td>Mar</td><td>同%b</td></tr>
+</tbody></table>
+<h2><a class="header" href="#week" id="week">Week</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%a</td><td>Sat</td><td>星期缩写</td></tr>
+<tr><td>%A</td><td>Saturday</td><td>星期英文全称</td></tr>
+<tr><td>%u</td><td>6</td><td>星期几1-7</td></tr>
+<tr><td>%U</td><td>09</td><td>本年的第几周(00-53 周日为第一天)</td></tr>
+<tr><td>%V</td><td>10</td><td>本年第几周(01-53 周一为第一天)</td></tr>
+<tr><td>%w</td><td>6</td><td>(0-6)周日为第一天0</td></tr>
+<tr><td>%W</td><td>09</td><td>本年第几周(00-53周一为第一天)</td></tr>
+</tbody></table>
+<h2><a class="header" href="#day" id="day">Day</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%d</td><td>09</td><td>day</td></tr>
+<tr><td>%D</td><td>03/09/19</td><td></td></tr>
+<tr><td>%e</td><td>9</td><td>day 前缀0换为空格 %_d</td></tr>
+<tr><td>%j</td><td>068</td><td>day of year</td></tr>
+</tbody></table>
+<h2><a class="header" href="#hour" id="hour">Hour</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%H</td><td>12</td><td>hour(00-23)</td></tr>
+<tr><td>%I</td><td>12</td><td>hour(01-12)</td></tr>
+<tr><td>%k</td><td>12</td><td>hour(0-23) 前缀0换为空格 同%_H</td></tr>
+<tr><td>%l</td><td>12</td><td>hour(1-12) 前缀0换为空格 同%_I</td></tr>
+</tbody></table>
+<h2><a class="header" href="#minute" id="minute">Minute</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%M</td><td>51</td><td>minute(00-59)</td></tr>
+</tbody></table>
+<h2><a class="header" href="#second" id="second">Second</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%s</td><td>1552107429</td><td>时间戳</td></tr>
+<tr><td>%N</td><td>071842181</td><td>纳秒000000000-999999999</td></tr>
+</tbody></table>
+<h2><a class="header" href="#time-zone" id="time-zone">Time Zone</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%z</td><td>+0800</td><td>时区偏移 +hhmm</td></tr>
+<tr><td>%:z</td><td>+08:00</td><td>时区偏移 +hh:mm</td></tr>
+<tr><td>%::z</td><td>+08:00:00</td><td>时区偏移 +hh:mm:ss</td></tr>
+<tr><td>%:::z</td><td>+08</td><td></td></tr>
+<tr><td>%Z</td><td>CST</td><td>时区缩写</td></tr>
+</tbody></table>
+<h2><a class="header" href="#other" id="other">Other</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%c</td><td>Sat 09 Mar 2019 12:40:25 PM CST</td><td></td></tr>
+<tr><td>%D</td><td>03/09/19</td><td></td></tr>
+<tr><td>%x</td><td>03/09/2019</td><td>日期格式</td></tr>
+<tr><td>%F</td><td>2019-03-09</td><td>同%Y-%m-%d</td></tr>
+<tr><td>%T</td><td>12:57:52</td><td>同%H:%M:%S</td></tr>
+<tr><td>%r</td><td>12:55:25 PM</td><td>12小时时钟时间</td></tr>
+<tr><td>%R</td><td>12:55</td><td>24小时制同 %H:%M</td></tr>
+<tr><td>%X</td><td>01:03:05 PM</td><td>时间格式 mac系统上不带PM</td></tr>
+</tbody></table>
+<h2><a class="header" href="#pad-space" id="pad-space">Pad Space</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%n</td><td>换行</td><td></td></tr>
+<tr><td>%t</td><td>a tab</td><td></td></tr>
+<tr><td>%p</td><td>PM</td><td>AM/PM 如果未知则为空</td></tr>
+<tr><td>%P</td><td>pm</td><td>am/pm 同%p但小写</td></tr>
+<tr><td>^</td><td></td><td>大写 如 %^b  则Mar-&gt; MAR</td></tr>
+<tr><td>_</td><td></td><td>占位符 以下划线代替空格 %_H</td></tr>
+<tr><td>0</td><td></td><td>占位符 以0代替空格 %_H</td></tr>
+<tr><td>-</td><td></td><td></td></tr>
+<tr><td>#</td><td></td><td></td></tr>
+</tbody></table>
+<h2><a class="header" href="#full-format" id="full-format">Full Format</a></h2>
+<table><thead><tr><th>format</th><th>example</th><th>desription</th></tr></thead><tbody>
+<tr><td>%a</td><td>Sat</td><td>星期缩写</td></tr>
+<tr><td>%A</td><td>Saturday</td><td>星期英文全称</td></tr>
+<tr><td>%b</td><td>Mar</td><td>月份缩写</td></tr>
+<tr><td>%B</td><td>March</td><td>月份全称</td></tr>
+<tr><td>%c</td><td>Sat 09 Mar 2019 12:40:25 PM CST</td><td></td></tr>
+<tr><td>%C</td><td>20</td><td>世纪，去掉年份(%Y)后两位</td></tr>
+<tr><td>%d</td><td>09</td><td>day</td></tr>
+<tr><td>%D</td><td>03/09/19</td><td></td></tr>
+<tr><td>%e</td><td>9</td><td>day 前缀0换为空格 %_d</td></tr>
+<tr><td>%F</td><td>2019-03-09</td><td>同%Y-%m-%d</td></tr>
+<tr><td>%g</td><td>19</td><td>年份后2位 ?</td></tr>
+<tr><td>%G</td><td>2019</td><td>同%Y</td></tr>
+<tr><td>%h</td><td>Mar</td><td>同%b</td></tr>
+<tr><td>%H</td><td>12</td><td>hour(00-23)</td></tr>
+<tr><td>%I</td><td>12</td><td>hour(01-12)</td></tr>
+<tr><td>%j</td><td>068</td><td>day of year</td></tr>
+<tr><td>%k</td><td>12</td><td>hour(0-23) 前缀0换为空格 同%_H</td></tr>
+<tr><td>%l</td><td>12</td><td>hour(1-12) 前缀0换为空格 同%_I</td></tr>
+<tr><td>%m</td><td>03</td><td>month(01-12)</td></tr>
+<tr><td>%M</td><td>51</td><td>minute(00-59)</td></tr>
+<tr><td>%n</td><td>换行</td><td></td></tr>
+<tr><td>%N</td><td>071842181</td><td>纳秒000000000-999999999</td></tr>
+<tr><td>%p</td><td>PM</td><td>AM/PM 如果未知则为空</td></tr>
+<tr><td>%P</td><td>pm</td><td>am/pm 同%p但小写</td></tr>
+<tr><td>%r</td><td>12:55:25 PM</td><td>12小时时钟时间</td></tr>
+<tr><td>%R</td><td>12:55</td><td>4小时制同 %H:%M</td></tr>
+<tr><td>%s</td><td>1552107429</td><td>时间戳</td></tr>
+<tr><td>%t</td><td>a tab</td><td></td></tr>
+<tr><td>%T</td><td>12:57:52</td><td>同%H:%M:%S</td></tr>
+<tr><td>%u</td><td>6</td><td>星期几1-7</td></tr>
+<tr><td>%U</td><td>09</td><td>本年的第几周(00-53 周日为第一天)</td></tr>
+<tr><td>%V</td><td>10</td><td>本年第几周(01-53 周一为第一天)</td></tr>
+<tr><td>%w</td><td>6</td><td>(0-6)周日为第一天0</td></tr>
+<tr><td>%W</td><td>09</td><td>本年第几周(00-53周一为第一天)</td></tr>
+<tr><td>%x</td><td>03/09/2019</td><td>日期格式</td></tr>
+<tr><td>%X</td><td>01:03:05 PM</td><td>时间格式 mac系统上不带PM</td></tr>
+<tr><td>%y</td><td>19</td><td>年的后2位(00-99)</td></tr>
+<tr><td>%Y</td><td>2019</td><td>year</td></tr>
+<tr><td>%z</td><td>+0800</td><td>时区偏移 +hhmm</td></tr>
+<tr><td>%:z</td><td>+08:00</td><td>时区偏移 +hh:mm</td></tr>
+<tr><td>%::z</td><td>+08:00:00</td><td>时区偏移 +hh:mm:ss</td></tr>
+<tr><td>%:::z</td><td>+08</td><td></td></tr>
+<tr><td>%Z</td><td>CST</td><td>时区缩写</td></tr>
+<tr><td>^</td><td>大写</td><td>如 %^b  则Mar-&gt; MAR</td></tr>
+<tr><td>_</td><td>占位符</td><td>以下划线代替空格 %_H</td></tr>
+<tr><td>0</td><td>占位符</td><td>以0代替空格 %_H</td></tr>
+<tr><td>-</td><td></td><td></td></tr>
+<tr><td>#</td><td></td><td></td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../others/markdown.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../others/what_I_think.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../others/markdown.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../others/what_I_think.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
