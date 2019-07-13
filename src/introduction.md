@@ -7,4 +7,12 @@
 - DO NOT forget who you are and remember who you are.
 - Theory guides the practice, and technology changes the world.
 - 凭什么和为什么理论
-- 程序员思维
+- programmer thought
+- 4T or 4W
+
+```
+Tell your computer what she should do for you. 
+Tell your user what happened if they encountered an error. 
+Tell yourself what happened if an error occured. 
+Tell your code reader what you writed.
+```		
