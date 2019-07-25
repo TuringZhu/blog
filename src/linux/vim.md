@@ -17,27 +17,81 @@
 
 #### Searching
 #### Inserting
+- A: 在当前行尾进入编辑状态
+- I: 在当前行首进入编辑状态
+- i: 在当前光标之前进入编辑状态
+- a: 在当前光标之后进入编辑状态
+- o: 在下一行行首进入编辑状态
+- O: 在上一行行首进入编辑状态
+
 #### Replacing
+
+- 合并行: `:r1,r2j` example: `:1,12j`
+- 合并2行: J命令 将当前行与下一行合并
+- 单个字母替换: r+替换字母
+- 
+
 #### Selecting
+- 
+
+
 #### Copying
 #### Pasting
 #### Deleting
 #### Paging
-- A Append
-- a
-- b
-- B
-- r
-- i
-- I
-- o 
-- O
+- A 当前行尾进入编辑状态, 另见 a,I,i,O,o
+- a 当前光标之后进入编辑状态, 另见 A,I,i,O,o
+- B 将当前光标移动到上一个段落句首首, 另见 b
+- b 将当前光标移动到上一个单词词首, 另见 B
+- C
+- c
+- D 删除光标到行尾的所有字符
+- d
+- E
+- e
+- F
+- f
+- G 跳转到最后一行第一列
+- g
+- H  跳转到本页第一行
+- h 光标前移一个字母, 另见 j k l
+- I 当前行首进入编辑状态, 另见 A, a,i, O, o
+- i 当前光标之前进入编辑状态, 另见 a, A, I, o, O
+- J
+- j 光标移动到下一行, 另见 h k l
+- K
+- k 光标移动到上一行, 另见 h k l
+- L
+- l 光标后移一个字母 另见 h j k
+- M
+- m
+- N
+- n
+- O 在上一行行首进入编辑状态
+- o 在下一行行首进入编辑状态
+- P 
 - p
+- Q
+- q
+- R
+- r 替换当前光标处字母
+- S
+- s
+- T
+- t
 - u
 - v
 - V
-- w
-- W
+- W 跳转到下一句句首
+- w 跳转到下一个单词词首
+- X 删除光标前面一个字符, 回退删除
+- x 删除当前字符, 
+- Y
+- y
+- Z
+- z
+- gg 回到第一行第一列
+- dd 删除一行
 
 ## vim command in vim terminal
 
@@ -102,3 +156,5 @@ Arguments:
    -h  or  --help	Print Help (this message) and exit
    --version		Print version information and exit
 ```
+
+![VIM键盘图](../img/vim.jpeg)
