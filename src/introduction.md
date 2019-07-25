@@ -15,4 +15,7 @@ Tell your computer what she should do for you.
 Tell your user what happened if they encountered an error. 
 Tell yourself what happened if an error occured. 
 Tell your code reader what you writed.
-```		
+
+```
+
+- 不喜欢工作的原因之一就是无法做到开发自由，而必须工作的原因之一就是无法做到财务自由。
