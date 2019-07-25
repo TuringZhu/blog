@@ -472,28 +472,83 @@ Description: API Document Specification
 <h2><a class="header" href="#vim-shortcut-in-vim-terminal" id="vim-shortcut-in-vim-terminal">vim shortcut in vim terminal</a></h2>
 <h4><a class="header" href="#searching" id="searching">Searching</a></h4>
 <h4><a class="header" href="#inserting" id="inserting">Inserting</a></h4>
+<ul>
+<li>A: 在当前行尾进入编辑状态</li>
+<li>I: 在当前行首进入编辑状态</li>
+<li>i: 在当前光标之前进入编辑状态</li>
+<li>a: 在当前光标之后进入编辑状态</li>
+<li>o: 在下一行行首进入编辑状态</li>
+<li>O: 在上一行行首进入编辑状态</li>
+</ul>
 <h4><a class="header" href="#replacing" id="replacing">Replacing</a></h4>
+<ul>
+<li>合并行: <code>:r1,r2j</code> example: <code>:1,12j</code></li>
+<li>合并2行: J命令 将当前行与下一行合并</li>
+<li>单个字母替换: r+替换字母</li>
+<li></li>
+</ul>
 <h4><a class="header" href="#selecting" id="selecting">Selecting</a></h4>
+<ul>
+<li></li>
+</ul>
 <h4><a class="header" href="#copying" id="copying">Copying</a></h4>
 <h4><a class="header" href="#pasting" id="pasting">Pasting</a></h4>
 <h4><a class="header" href="#deleting" id="deleting">Deleting</a></h4>
 <h4><a class="header" href="#paging" id="paging">Paging</a></h4>
 <ul>
-<li>A Append</li>
-<li>a</li>
-<li>b</li>
-<li>B</li>
-<li>r</li>
-<li>i</li>
-<li>I</li>
-<li>o </li>
-<li>O</li>
+<li>A 当前行尾进入编辑状态, 另见 a,I,i,O,o</li>
+<li>a 当前光标之后进入编辑状态, 另见 A,I,i,O,o</li>
+<li>B 将当前光标移动到上一个段落句首首, 另见 b</li>
+<li>b 将当前光标移动到上一个单词词首, 另见 B</li>
+<li>C</li>
+<li>c</li>
+<li>D 删除光标到行尾的所有字符</li>
+<li>d</li>
+<li>E</li>
+<li>e</li>
+<li>F</li>
+<li>f</li>
+<li>G 跳转到最后一行第一列</li>
+<li>g</li>
+<li>H  跳转到本页第一行</li>
+<li>h 光标前移一个字母, 另见 j k l</li>
+<li>I 当前行首进入编辑状态, 另见 A, a,i, O, o</li>
+<li>i 当前光标之前进入编辑状态, 另见 a, A, I, o, O</li>
+<li>J</li>
+<li>j 光标移动到下一行, 另见 h k l</li>
+<li>K</li>
+<li>k 光标移动到上一行, 另见 h k l</li>
+<li>L</li>
+<li>l 光标后移一个字母 另见 h j k</li>
+<li>M</li>
+<li>m</li>
+<li>N</li>
+<li>n</li>
+<li>O 在上一行行首进入编辑状态</li>
+<li>o 在下一行行首进入编辑状态</li>
+<li>P </li>
 <li>p</li>
+<li>Q</li>
+<li>q</li>
+<li>R</li>
+<li>r 替换当前光标处字母</li>
+<li>S</li>
+<li>s</li>
+<li>T</li>
+<li>t</li>
 <li>u</li>
 <li>v</li>
 <li>V</li>
-<li>w</li>
-<li>W</li>
+<li>W 跳转到下一句句首</li>
+<li>w 跳转到下一个单词词首</li>
+<li>X 删除光标前面一个字符, 回退删除</li>
+<li>x 删除当前字符, </li>
+<li>Y</li>
+<li>y</li>
+<li>Z</li>
+<li>z</li>
+<li>gg 回到第一行第一列</li>
+<li>dd 删除一行</li>
 </ul>
 <h2><a class="header" href="#vim-command-in-vim-terminal" id="vim-command-in-vim-terminal">vim command in vim terminal</a></h2>
 <ul>
@@ -554,6 +609,7 @@ Arguments:
    -h  or  --help	Print Help (this message) and exit
    --version		Print version information and exit
 </code></pre>
+<p><img src="linux/../img/vim.jpeg" alt="VIM键盘图" /></p>
 <h1><a class="header" href="#block-chain" id="block-chain">Block Chain</a></h1>
 <h1><a class="header" href="#others" id="others">Others</a></h1>
 <ul>
