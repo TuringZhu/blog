@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>requirements - Turing Zhu's Blog</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Record Turing Zhu's life and learning note.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="rust">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../../os/index.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="../../network/index.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="../../data_structure/index.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="../../algorithm/index.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="../../database/index.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="../../language/index.html"><strong aria-hidden="true">7.</strong> Language</a></li><li><ol class="section"><li><a href="../../language/python/index.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><ol class="section"><li><a href="../../language/python/requirements.html" class="active"><strong aria-hidden="true">7.1.1.</strong> requirements</a></li></ol></li><li><a href="../../language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="../../language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="../../language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="../../git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="../../git/commit_specification.html"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="../../git/hooks.html"><strong aria-hidden="true">8.2.</strong> hooks</a></li><li><a href="../../git/syncing_a_fork.html"><strong aria-hidden="true">8.3.</strong> syncing a fork</a></li></ol></li><li><a href="../../devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="../../devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li><li><a href="../../devops/code_clean.html"><strong aria-hidden="true">9.2.</strong> Code Clean Note</a></li></ol></li><li><a href="../../test/index.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="../../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li><li><a href="../../linux/how_a_program_gengerate.html"><strong aria-hidden="true">11.2.</strong> how a executable binary generated</a></li></ol></li><li><a href="../../blockchain/index.html"><strong aria-hidden="true">12.</strong> Block Chain</a></li><li><a href="../../others/index.html"><strong aria-hidden="true">13.</strong> Others</a></li><li><ol class="section"><li><a href="../../others/markdown.html"><strong aria-hidden="true">13.1.</strong> markdown</a></li><li><a href="../../others/time_format.html"><strong aria-hidden="true">13.2.</strong> time format</a></li><li><a href="../../others/what_I_think.html"><strong aria-hidden="true">13.3.</strong> What I think Now</a></li></ol></li><li><a href="../../life/index.html"><strong aria-hidden="true">14.</strong> Life</a></li><li><ol class="section"><li><a href="../../life/music.html"><strong aria-hidden="true">14.1.</strong> Music</a></li><li><a href="../../life/bother.html"><strong aria-hidden="true">14.2.</strong> Bother</a></li></ol></li><li><a href="../../documents/index.html"><strong aria-hidden="true">15.</strong> documents</a></li><li><ol class="section"><li><a href="../../documents/jianzhen_xiangwangyujianghu.html"><strong aria-hidden="true">15.1.</strong> 簡貞 - 相忘于江湖</a></li><li><a href="../../lisi_jianzhukeshu.html"><strong aria-hidden="true">15.2.</strong> 李斯 - 諫逐客書</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Turing Zhu's Blog</h1>
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                            <a href="https://github.com/Turing-Chu/blog" title="Git repository" aria-label="Git repository">
+                                <i id="git-repository-button" class="fa fa-github"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#requirementstxt-in-python" id="requirementstxt-in-python">requirements.txt in python</a></h1>
+<h2><a class="header" href="#what-is-the-purpose-of-the-requirementstxts-exists" id="what-is-the-purpose-of-the-requirementstxts-exists">what is the purpose of the requirements.txt's exists?</a></h2>
+<p>“Requirements files” are files containing a list of items to be installed using pip install like so:</p>
+<pre><code>pip install -r requirements.txt
+</code></pre>
+<p>Requirements files are used to force pip to properly resolve dependencies. </p>
+<h2><a class="header" href="#how-to-generate-requirementstxt" id="how-to-generate-requirementstxt">how to generate requirements.txt?</a></h2>
+<p>Requirements files are used to hold the result from <a href="https://pip.pypa.io/en/stable/reference/pip_freeze/#pip-freeze">pip freeze</a> for the purpose of achieving repeatable installations. In this case, your requirement file contains a pinned version of everything that was installed when pip freeze was run.</p>
+<pre><code>pip freeze &gt; requirements.txt
+</code></pre>
+<h3><a class="header" href="#pip-freeze" id="pip-freeze">pip freeze</a></h3>
+<p>Output installed packages in requirements format.
+packages are listed in a case-insensitive sorted order.</p>
+<pre><code>Usage:   
+  pip3.6 freeze [options]
+Description:
+  Output installed packages in requirements format.
+  packages are listed in a case-insensitive sorted order.
+
+Freeze Options:
+  -r, --requirement &lt;file&gt;    Use the order in the given requirements file and
+                              its comments when generating output. This option
+                              can be used multiple times.
+  -f, --find-links &lt;url&gt;      URL for finding packages, which will be added to
+                              the output.
+  -l, --local                 If in a virtualenv that has global access, do
+                              not output globally-installed packages.
+  --user                      Only output packages installed in user-site.
+  --all                       Do not skip these packages in the output: pip,
+                              setuptools, wheel, distribute
+  --exclude-editable          Exclude editable package from output.
+
+General Options:
+  --isolated                  Run pip in an isolated mode, ignoring
+                              environment variables and user configuration.
+  -v, --verbose               Give more output. Option is additive, and can be
+                              used up to 3 times.
+  -q, --quiet                 Give less output. Option is additive, and can be
+                              used up to 3 times (corresponding to WARNING,
+                              ERROR, and CRITICAL logging levels).
+  --log &lt;path&gt;                Path to a verbose appending log.
+  --proxy &lt;proxy&gt;             Specify a proxy in the form
+                              [user:passwd@]proxy.server:port.
+  --retries &lt;retries&gt;         Maximum number of retries each connection should
+                              attempt (default 5 times).
+  --timeout &lt;sec&gt;             Set the socket timeout (default 15 seconds).
+  --exists-action &lt;action&gt;    Default action when a path already exists:
+                              (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
+  --trusted-host &lt;hostname&gt;   Mark this host as trusted, even though it does
+                              not have valid or any HTTPS.
+  --cert &lt;path&gt;               Path to alternate CA bundle.
+  --client-cert &lt;path&gt;        Path to SSL client certificate, a single file
+                              containing the private key and the certificate
+                              in PEM format.
+  --cache-dir &lt;dir&gt;           Store the cache data in &lt;dir&gt;.
+  --no-cache-dir              Disable the cache.
+  --disable-pip-version-check
+                              Don't periodically check PyPI to determine
+                              whether a new version of pip is available for
+                              download. Implied with --no-index.
+  --no-color                  Suppress colored output
+
+</code></pre>
+<h2><a class="header" href="#how-to-use-requirementsttxt" id="how-to-use-requirementsttxt">how to use requirementst.txt?</a></h2>
+<pre><code>pip install -r requirements.txt
+</code></pre>
+<h2><a class="header" href="#other-pyvenv" id="other-pyvenv">other: pyvenv</a></h2>
+<p>The venv module provides support for creating lightweight “virtual environments” with their own site directories, optionally isolated from system site directories. Each virtual environment has its own Python binary (which matches the version of the binary that was used to create this environment) and can have its own independent set of installed Python packages in its site directories.</p>
+<pre><code>pyvenv ENV_DIR
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../language/python/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../language/golang.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../language/python/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../language/golang.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

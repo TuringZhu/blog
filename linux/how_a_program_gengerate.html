@@ -1,0 +1,1767 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>how a executable binary generated - Turing Zhu's Blog</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Record Turing Zhu's life and learning note.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="rust">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="../os/index.html"><strong aria-hidden="true">2.</strong> Operating System</a></li><li><a href="../network/index.html"><strong aria-hidden="true">3.</strong> Network</a></li><li><a href="../data_structure/index.html"><strong aria-hidden="true">4.</strong> Data Structure</a></li><li><a href="../algorithm/index.html"><strong aria-hidden="true">5.</strong> Algorithm</a></li><li><a href="../database/index.html"><strong aria-hidden="true">6.</strong> Database</a></li><li><a href="../language/index.html"><strong aria-hidden="true">7.</strong> Language</a></li><li><ol class="section"><li><a href="../language/python/index.html"><strong aria-hidden="true">7.1.</strong> python</a></li><li><ol class="section"><li><a href="../language/python/requirements.html"><strong aria-hidden="true">7.1.1.</strong> requirements</a></li></ol></li><li><a href="../language/golang.html"><strong aria-hidden="true">7.2.</strong> golang</a></li><li><a href="../language/rust.html"><strong aria-hidden="true">7.3.</strong> Rust</a></li><li><a href="../language/shell.html"><strong aria-hidden="true">7.4.</strong> shell</a></li></ol></li><li><a href="../git/index.html"><strong aria-hidden="true">8.</strong> git</a></li><li><ol class="section"><li><a href="../git/commit_specification.html"><strong aria-hidden="true">8.1.</strong> commit specification</a></li><li><a href="../git/hooks.html"><strong aria-hidden="true">8.2.</strong> hooks</a></li><li><a href="../git/syncing_a_fork.html"><strong aria-hidden="true">8.3.</strong> syncing a fork</a></li></ol></li><li><a href="../devops/index.html"><strong aria-hidden="true">9.</strong> Devops</a></li><li><ol class="section"><li><a href="../devops/api_doc_spec.html"><strong aria-hidden="true">9.1.</strong> API-DOC-SPEC</a></li><li><a href="../devops/code_clean.html"><strong aria-hidden="true">9.2.</strong> Code Clean Note</a></li></ol></li><li><a href="../test/index.html"><strong aria-hidden="true">10.</strong> Test</a></li><li><a href="../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li><li><a href="../linux/how_a_program_gengerate.html" class="active"><strong aria-hidden="true">11.2.</strong> how a executable binary generated</a></li></ol></li><li><a href="../blockchain/index.html"><strong aria-hidden="true">12.</strong> Block Chain</a></li><li><a href="../others/index.html"><strong aria-hidden="true">13.</strong> Others</a></li><li><ol class="section"><li><a href="../others/markdown.html"><strong aria-hidden="true">13.1.</strong> markdown</a></li><li><a href="../others/time_format.html"><strong aria-hidden="true">13.2.</strong> time format</a></li><li><a href="../others/what_I_think.html"><strong aria-hidden="true">13.3.</strong> What I think Now</a></li></ol></li><li><a href="../life/index.html"><strong aria-hidden="true">14.</strong> Life</a></li><li><ol class="section"><li><a href="../life/music.html"><strong aria-hidden="true">14.1.</strong> Music</a></li><li><a href="../life/bother.html"><strong aria-hidden="true">14.2.</strong> Bother</a></li></ol></li><li><a href="../documents/index.html"><strong aria-hidden="true">15.</strong> documents</a></li><li><ol class="section"><li><a href="../documents/jianzhen_xiangwangyujianghu.html"><strong aria-hidden="true">15.1.</strong> 簡貞 - 相忘于江湖</a></li><li><a href="../lisi_jianzhukeshu.html"><strong aria-hidden="true">15.2.</strong> 李斯 - 諫逐客書</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Turing Zhu's Blog</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                            <a href="https://github.com/Turing-Chu/blog" title="Git repository" aria-label="Git repository">
+                                <i id="git-repository-button" class="fa fa-github"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#how-a-hello_world-program-is-build-out" id="how-a-hello_world-program-is-build-out">How a hello_world program is build out?</a></h1>
+<blockquote>
+<p>note:</p>
+<p>linux version:  <code>CentOS Linux release 7.4.1708 (Core)</code></p>
+<p>gcc version: <code>gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-36)</code></p>
+</blockquote>
+<h2><a class="header" href="#source-code-in-c" id="source-code-in-c">source code in C</a></h2>
+<p>hello_world.c file</p>
+<pre><code class="language-C">
+#include&lt;stdio.h&gt;
+
+int main(int argc,char *argv[]) {
+    printf(&quot;Hello World!&quot;);
+    return 0 ;
+}
+</code></pre>
+<h2><a class="header" href="#preprocessor" id="preprocessor">preprocessor</a></h2>
+<p>The main purpose of preprocessor is processing the command begin with <code>#</code> except <code>#pragma</code>. For the above <code>hello_world.c</code> program, after preprocess, it will insert <code>stdio.h</code>'s content to the location of the preprocessor command: <code>#include&lt;stdio.h&gt;</code></p>
+<p>the command of generating content after preprocessor is:</p>
+<pre><code class="language-shell"> # -E	Only run the preprocessor
+gcc -E -o hello_world.i helloWorld.c
+
+</code></pre>
+<p>And the hello_world.i content is:</p>
+<pre><code># 1 &quot;hello_world.c&quot;
+# 1 &quot;&lt;built-in&gt;&quot;
+# 1 &quot;&lt;command-line&gt;&quot;
+# 1 &quot;/usr/include/stdc-predef.h&quot; 1 3 4
+# 1 &quot;&lt;command-line&gt;&quot; 2
+# 1 &quot;hello_world.c&quot;
+# 1 &quot;/usr/include/stdio.h&quot; 1 3 4
+# 27 &quot;/usr/include/stdio.h&quot; 3 4
+# 1 &quot;/usr/include/features.h&quot; 1 3 4
+# 375 &quot;/usr/include/features.h&quot; 3 4
+# 1 &quot;/usr/include/sys/cdefs.h&quot; 1 3 4
+# 392 &quot;/usr/include/sys/cdefs.h&quot; 3 4
+# 1 &quot;/usr/include/bits/wordsize.h&quot; 1 3 4
+# 393 &quot;/usr/include/sys/cdefs.h&quot; 2 3 4
+# 376 &quot;/usr/include/features.h&quot; 2 3 4
+# 399 &quot;/usr/include/features.h&quot; 3 4
+# 1 &quot;/usr/include/gnu/stubs.h&quot; 1 3 4
+# 10 &quot;/usr/include/gnu/stubs.h&quot; 3 4
+# 1 &quot;/usr/include/gnu/stubs-64.h&quot; 1 3 4
+# 11 &quot;/usr/include/gnu/stubs.h&quot; 2 3 4
+# 400 &quot;/usr/include/features.h&quot; 2 3 4
+# 28 &quot;/usr/include/stdio.h&quot; 2 3 4
+
+
+
+
+
+# 1 &quot;/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stddef.h&quot; 1 3 4
+# 212 &quot;/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stddef.h&quot; 3 4
+typedef long unsigned int size_t;
+# 34 &quot;/usr/include/stdio.h&quot; 2 3 4
+
+# 1 &quot;/usr/include/bits/types.h&quot; 1 3 4
+# 27 &quot;/usr/include/bits/types.h&quot; 3 4
+# 1 &quot;/usr/include/bits/wordsize.h&quot; 1 3 4
+# 28 &quot;/usr/include/bits/types.h&quot; 2 3 4
+
+
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+
+
+
+
+
+
+
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+# 130 &quot;/usr/include/bits/types.h&quot; 3 4
+# 1 &quot;/usr/include/bits/typesizes.h&quot; 1 3 4
+# 131 &quot;/usr/include/bits/types.h&quot; 2 3 4
+
+
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+
+typedef int __daddr_t;
+typedef int __key_t;
+
+
+typedef int __clockid_t;
+
+
+typedef void * __timer_t;
+
+
+typedef long int __blksize_t;
+
+
+
+
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+
+
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+
+
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+
+
+typedef long int __fsword_t;
+
+typedef long int __ssize_t;
+
+
+typedef long int __syscall_slong_t;
+
+typedef unsigned long int __syscall_ulong_t;
+
+
+
+typedef __off64_t __loff_t;
+typedef __quad_t *__qaddr_t;
+typedef char *__caddr_t;
+
+
+typedef long int __intptr_t;
+
+
+typedef unsigned int __socklen_t;
+# 36 &quot;/usr/include/stdio.h&quot; 2 3 4
+# 44 &quot;/usr/include/stdio.h&quot; 3 4
+struct _IO_FILE;
+
+
+
+typedef struct _IO_FILE FILE;
+
+
+
+
+
+# 64 &quot;/usr/include/stdio.h&quot; 3 4
+typedef struct _IO_FILE __FILE;
+# 74 &quot;/usr/include/stdio.h&quot; 3 4
+# 1 &quot;/usr/include/libio.h&quot; 1 3 4
+# 32 &quot;/usr/include/libio.h&quot; 3 4
+# 1 &quot;/usr/include/_G_config.h&quot; 1 3 4
+# 15 &quot;/usr/include/_G_config.h&quot; 3 4
+# 1 &quot;/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stddef.h&quot; 1 3 4
+# 16 &quot;/usr/include/_G_config.h&quot; 2 3 4
+
+
+
+
+# 1 &quot;/usr/include/wchar.h&quot; 1 3 4
+# 82 &quot;/usr/include/wchar.h&quot; 3 4
+typedef struct
+{
+  int __count;
+  union
+  {
+
+    unsigned int __wch;
+
+
+
+    char __wchb[4];
+  } __value;
+} __mbstate_t;
+# 21 &quot;/usr/include/_G_config.h&quot; 2 3 4
+typedef struct
+{
+  __off_t __pos;
+  __mbstate_t __state;
+} _G_fpos_t;
+typedef struct
+{
+  __off64_t __pos;
+  __mbstate_t __state;
+} _G_fpos64_t;
+# 33 &quot;/usr/include/libio.h&quot; 2 3 4
+# 50 &quot;/usr/include/libio.h&quot; 3 4
+# 1 &quot;/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdarg.h&quot; 1 3 4
+# 40 &quot;/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdarg.h&quot; 3 4
+typedef __builtin_va_list __gnuc_va_list;
+# 51 &quot;/usr/include/libio.h&quot; 2 3 4
+# 145 &quot;/usr/include/libio.h&quot; 3 4
+struct _IO_jump_t; struct _IO_FILE;
+# 155 &quot;/usr/include/libio.h&quot; 3 4
+typedef void _IO_lock_t;
+
+
+
+
+
+struct _IO_marker {
+  struct _IO_marker *_next;
+  struct _IO_FILE *_sbuf;
+
+
+
+  int _pos;
+# 178 &quot;/usr/include/libio.h&quot; 3 4
+};
+
+
+enum __codecvt_result
+{
+  __codecvt_ok,
+  __codecvt_partial,
+  __codecvt_error,
+  __codecvt_noconv
+};
+# 246 &quot;/usr/include/libio.h&quot; 3 4
+struct _IO_FILE {
+  int _flags;
+
+
+
+
+  char* _IO_read_ptr;
+  char* _IO_read_end;
+  char* _IO_read_base;
+  char* _IO_write_base;
+  char* _IO_write_ptr;
+  char* _IO_write_end;
+  char* _IO_buf_base;
+  char* _IO_buf_end;
+
+  char *_IO_save_base;
+  char *_IO_backup_base;
+  char *_IO_save_end;
+
+  struct _IO_marker *_markers;
+
+  struct _IO_FILE *_chain;
+
+  int _fileno;
+
+
+
+  int _flags2;
+
+  __off_t _old_offset;
+
+
+
+  unsigned short _cur_column;
+  signed char _vtable_offset;
+  char _shortbuf[1];
+
+
+
+  _IO_lock_t *_lock;
+# 294 &quot;/usr/include/libio.h&quot; 3 4
+  __off64_t _offset;
+# 303 &quot;/usr/include/libio.h&quot; 3 4
+  void *__pad1;
+  void *__pad2;
+  void *__pad3;
+  void *__pad4;
+  size_t __pad5;
+
+  int _mode;
+
+  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+
+};
+
+
+typedef struct _IO_FILE _IO_FILE;
+
+
+struct _IO_FILE_plus;
+
+extern struct _IO_FILE_plus _IO_2_1_stdin_;
+extern struct _IO_FILE_plus _IO_2_1_stdout_;
+extern struct _IO_FILE_plus _IO_2_1_stderr_;
+# 339 &quot;/usr/include/libio.h&quot; 3 4
+typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
+
+
+
+
+
+
+
+typedef __ssize_t __io_write_fn (void *__cookie, const char *__buf,
+     size_t __n);
+
+
+
+
+
+
+
+typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
+
+
+typedef int __io_close_fn (void *__cookie);
+# 391 &quot;/usr/include/libio.h&quot; 3 4
+extern int __underflow (_IO_FILE *);
+extern int __uflow (_IO_FILE *);
+extern int __overflow (_IO_FILE *, int);
+# 435 &quot;/usr/include/libio.h&quot; 3 4
+extern int _IO_getc (_IO_FILE *__fp);
+extern int _IO_putc (int __c, _IO_FILE *__fp);
+extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ferror (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int _IO_peekc_locked (_IO_FILE *__fp);
+
+
+
+
+
+extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+# 465 &quot;/usr/include/libio.h&quot; 3 4
+extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
+   __gnuc_va_list, int *__restrict);
+extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
+    __gnuc_va_list);
+extern __ssize_t _IO_padn (_IO_FILE *, int, __ssize_t);
+extern size_t _IO_sgetn (_IO_FILE *, void *, size_t);
+
+extern __off64_t _IO_seekoff (_IO_FILE *, __off64_t, int, int);
+extern __off64_t _IO_seekpos (_IO_FILE *, __off64_t, int);
+
+extern void _IO_free_backup_area (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+# 75 &quot;/usr/include/stdio.h&quot; 2 3 4
+
+
+
+
+typedef __gnuc_va_list va_list;
+# 90 &quot;/usr/include/stdio.h&quot; 3 4
+typedef __off_t off_t;
+# 102 &quot;/usr/include/stdio.h&quot; 3 4
+typedef __ssize_t ssize_t;
+
+
+
+
+
+
+
+typedef _G_fpos_t fpos_t;
+
+
+
+
+# 164 &quot;/usr/include/stdio.h&quot; 3 4
+# 1 &quot;/usr/include/bits/stdio_lim.h&quot; 1 3 4
+# 165 &quot;/usr/include/stdio.h&quot; 2 3 4
+
+
+
+extern struct _IO_FILE *stdin;
+extern struct _IO_FILE *stdout;
+extern struct _IO_FILE *stderr;
+
+
+
+
+
+
+
+extern int remove (const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int rename (const char *__old, const char *__new) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+extern int renameat (int __oldfd, const char *__old, int __newfd,
+       const char *__new) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+
+
+extern FILE *tmpfile (void) ;
+# 209 &quot;/usr/include/stdio.h&quot; 3 4
+extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+
+extern char *tmpnam_r (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
+# 227 &quot;/usr/include/stdio.h&quot; 3 4
+extern char *tempnam (const char *__dir, const char *__pfx)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+
+
+
+
+
+
+
+
+extern int fclose (FILE *__stream);
+
+
+
+
+extern int fflush (FILE *__stream);
+
+# 252 &quot;/usr/include/stdio.h&quot; 3 4
+extern int fflush_unlocked (FILE *__stream);
+# 266 &quot;/usr/include/stdio.h&quot; 3 4
+
+
+
+
+
+
+extern FILE *fopen (const char *__restrict __filename,
+      const char *__restrict __modes) ;
+
+
+
+
+extern FILE *freopen (const char *__restrict __filename,
+        const char *__restrict __modes,
+        FILE *__restrict __stream) ;
+# 295 &quot;/usr/include/stdio.h&quot; 3 4
+
+# 306 &quot;/usr/include/stdio.h&quot; 3 4
+extern FILE *fdopen (int __fd, const char *__modes) __attribute__ ((__nothrow__ , __leaf__)) ;
+# 319 &quot;/usr/include/stdio.h&quot; 3 4
+extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
+  __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+
+
+extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
+      int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+extern void setbuffer (FILE *__restrict __stream, char *__restrict __buf,
+         size_t __size) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern void setlinebuf (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+
+
+extern int fprintf (FILE *__restrict __stream,
+      const char *__restrict __format, ...);
+
+
+
+
+extern int printf (const char *__restrict __format, ...);
+
+extern int sprintf (char *__restrict __s,
+      const char *__restrict __format, ...) __attribute__ ((__nothrow__));
+
+
+
+
+
+extern int vfprintf (FILE *__restrict __s, const char *__restrict __format,
+       __gnuc_va_list __arg);
+
+
+
+
+extern int vprintf (const char *__restrict __format, __gnuc_va_list __arg);
+
+extern int vsprintf (char *__restrict __s, const char *__restrict __format,
+       __gnuc_va_list __arg) __attribute__ ((__nothrow__));
+
+
+
+
+
+extern int snprintf (char *__restrict __s, size_t __maxlen,
+       const char *__restrict __format, ...)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+extern int vsnprintf (char *__restrict __s, size_t __maxlen,
+        const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+# 412 &quot;/usr/include/stdio.h&quot; 3 4
+extern int vdprintf (int __fd, const char *__restrict __fmt,
+       __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__printf__, 2, 0)));
+extern int dprintf (int __fd, const char *__restrict __fmt, ...)
+     __attribute__ ((__format__ (__printf__, 2, 3)));
+
+
+
+
+
+
+
+
+extern int fscanf (FILE *__restrict __stream,
+     const char *__restrict __format, ...) ;
+
+
+
+
+extern int scanf (const char *__restrict __format, ...) ;
+
+extern int sscanf (const char *__restrict __s,
+     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
+# 443 &quot;/usr/include/stdio.h&quot; 3 4
+extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ (&quot;&quot; &quot;__isoc99_fscanf&quot;)
+
+                               ;
+extern int scanf (const char *__restrict __format, ...) __asm__ (&quot;&quot; &quot;__isoc99_scanf&quot;)
+                              ;
+extern int sscanf (const char *__restrict __s, const char *__restrict __format, ...) __asm__ (&quot;&quot; &quot;__isoc99_sscanf&quot;) __attribute__ ((__nothrow__ , __leaf__))
+
+                      ;
+# 463 &quot;/usr/include/stdio.h&quot; 3 4
+
+
+
+
+
+
+
+
+extern int vfscanf (FILE *__restrict __s, const char *__restrict __format,
+      __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
+
+
+
+
+
+extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
+
+
+extern int vsscanf (const char *__restrict __s,
+      const char *__restrict __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__format__ (__scanf__, 2, 0)));
+# 494 &quot;/usr/include/stdio.h&quot; 3 4
+extern int vfscanf (FILE *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ (&quot;&quot; &quot;__isoc99_vfscanf&quot;)
+
+
+
+     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
+extern int vscanf (const char *__restrict __format, __gnuc_va_list __arg) __asm__ (&quot;&quot; &quot;__isoc99_vscanf&quot;)
+
+     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
+extern int vsscanf (const char *__restrict __s, const char *__restrict __format, __gnuc_va_list __arg) __asm__ (&quot;&quot; &quot;__isoc99_vsscanf&quot;) __attribute__ ((__nothrow__ , __leaf__))
+
+
+
+     __attribute__ ((__format__ (__scanf__, 2, 0)));
+# 522 &quot;/usr/include/stdio.h&quot; 3 4
+
+
+
+
+
+
+
+
+
+extern int fgetc (FILE *__stream);
+extern int getc (FILE *__stream);
+
+
+
+
+
+extern int getchar (void);
+
+# 550 &quot;/usr/include/stdio.h&quot; 3 4
+extern int getc_unlocked (FILE *__stream);
+extern int getchar_unlocked (void);
+# 561 &quot;/usr/include/stdio.h&quot; 3 4
+extern int fgetc_unlocked (FILE *__stream);
+
+
+
+
+
+
+
+
+
+
+
+extern int fputc (int __c, FILE *__stream);
+extern int putc (int __c, FILE *__stream);
+
+
+
+
+
+extern int putchar (int __c);
+
+# 594 &quot;/usr/include/stdio.h&quot; 3 4
+extern int fputc_unlocked (int __c, FILE *__stream);
+
+
+
+
+
+
+
+extern int putc_unlocked (int __c, FILE *__stream);
+extern int putchar_unlocked (int __c);
+
+
+
+
+
+
+extern int getw (FILE *__stream);
+
+
+extern int putw (int __w, FILE *__stream);
+
+
+
+
+
+
+
+
+extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+     ;
+# 638 &quot;/usr/include/stdio.h&quot; 3 4
+extern char *gets (char *__s) __attribute__ ((__deprecated__));
+
+
+# 665 &quot;/usr/include/stdio.h&quot; 3 4
+extern __ssize_t __getdelim (char **__restrict __lineptr,
+          size_t *__restrict __n, int __delimiter,
+          FILE *__restrict __stream) ;
+extern __ssize_t getdelim (char **__restrict __lineptr,
+        size_t *__restrict __n, int __delimiter,
+        FILE *__restrict __stream) ;
+
+
+
+
+
+
+
+extern __ssize_t getline (char **__restrict __lineptr,
+       size_t *__restrict __n,
+       FILE *__restrict __stream) ;
+
+
+
+
+
+
+
+
+extern int fputs (const char *__restrict __s, FILE *__restrict __stream);
+
+
+
+
+
+extern int puts (const char *__s);
+
+
+
+
+
+
+extern int ungetc (int __c, FILE *__stream);
+
+
+
+
+
+
+extern size_t fread (void *__restrict __ptr, size_t __size,
+       size_t __n, FILE *__restrict __stream) ;
+
+
+
+
+extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+        size_t __n, FILE *__restrict __s);
+
+# 737 &quot;/usr/include/stdio.h&quot; 3 4
+extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
+         size_t __n, FILE *__restrict __stream) ;
+extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
+          size_t __n, FILE *__restrict __stream);
+
+
+
+
+
+
+
+
+extern int fseek (FILE *__stream, long int __off, int __whence);
+
+
+
+
+extern long int ftell (FILE *__stream) ;
+
+
+
+
+extern void rewind (FILE *__stream);
+
+# 773 &quot;/usr/include/stdio.h&quot; 3 4
+extern int fseeko (FILE *__stream, __off_t __off, int __whence);
+
+
+
+
+extern __off_t ftello (FILE *__stream) ;
+# 792 &quot;/usr/include/stdio.h&quot; 3 4
+
+
+
+
+
+
+extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
+
+
+
+
+extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+# 815 &quot;/usr/include/stdio.h&quot; 3 4
+
+# 824 &quot;/usr/include/stdio.h&quot; 3 4
+
+
+extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int feof (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+extern int ferror (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+extern void clearerr_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+extern int feof_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern int ferror_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+
+
+
+
+extern void perror (const char *__s);
+
+
+
+
+
+
+# 1 &quot;/usr/include/bits/sys_errlist.h&quot; 1 3 4
+# 26 &quot;/usr/include/bits/sys_errlist.h&quot; 3 4
+extern int sys_nerr;
+extern const char *const sys_errlist[];
+# 854 &quot;/usr/include/stdio.h&quot; 2 3 4
+
+
+
+
+extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+# 873 &quot;/usr/include/stdio.h&quot; 3 4
+extern FILE *popen (const char *__command, const char *__modes) ;
+
+
+
+
+
+extern int pclose (FILE *__stream);
+
+
+
+
+
+extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__));
+# 913 &quot;/usr/include/stdio.h&quot; 3 4
+extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+# 943 &quot;/usr/include/stdio.h&quot; 3 4
+
+# 2 &quot;hello_world.c&quot; 2
+int main(int argc,char *argv[]) {
+    printf(&quot;Hello World!&quot;);
+    return 0;
+}
+</code></pre>
+<h2><a class="header" href="#compilation" id="compilation">compilation</a></h2>
+<p>after preprocessor, we should process the object file with <code>Lexical analysis</code>, <code>syntax analysis</code> and <code>semantic analysis</code> and generate assemble file.</p>
+<p>we can generate assemble file with the following command: </p>
+<pre><code class="language-shell"># -S	Only run preprocess and compilation steps
+gcc -S -o hello_world.s hello_world.c 
+</code></pre>
+<p>the object assemble file content:</p>
+<pre><code class="language-text">	.file	&quot;hello_world.c&quot;
+	.section	.rodata
+.LC0:
+	.string	&quot;Hello World!&quot;
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movl	%edi, -4(%rbp)
+	movq	%rsi, -16(%rbp)
+	movl	$.LC0, %edi
+	movl	$0, %eax
+	call	printf
+	movl	$0, %eax
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	&quot;GCC: (GNU) 4.8.5 20150623 (Red Hat 4.8.5-36)&quot;
+	.section	.note.GNU-stack,&quot;&quot;,@progbits
+</code></pre>
+<h2><a class="header" href="#assemble" id="assemble">assemble</a></h2>
+<p>assemble is the command of translating assemble code to machine code and generate object file.</p>
+<p>we can use the following command tot get assembled content:</p>
+<pre><code class="language-shell"># -o &lt;file&gt;	Write output to &lt;file&gt;
+gcc  -o  helloWorld.o   -c helloWorld.c
+</code></pre>
+<p>and the binary file with hexadecimal data:</p>
+<pre><code class="language-text">00000000: 7f45 4c46 0201 0100 0000 0000 0000 0000  .ELF............
+00000010: 0100 3e00 0100 0000 0000 0000 0000 0000  ..&gt;.............
+00000020: 0000 0000 0000 0000 3f02 0000 0000 0000  ........?.......
+00000030: 0000 0000 4000 0000 0000 4000 0d00 0a00  ....@.....@.....
+00000040: 5548 3f3f 483f 3f10 3f7d 3f48 3f75 3f3f  UH??H??.?}?H?u??
+00000050: 0000 0000 3f00 0000 003f 0000 0000 3f00  ....?....?....?.
+00000060: 0000 003f 3f48 656c 6c6f 2057 6f72 6c64  ...??Hello World
+00000070: 2100 0047 4343 3a20 2847 4e55 2920 342e  !..GCC: (GNU) 4.
+00000080: 382e 3520 3230 3135 3036 3233 2028 5265  8.5 20150623 (Re
+00000090: 6420 4861 7420 342e 382e 352d 3336 2900  d Hat 4.8.5-36).
+000000a0: 1400 0000 0000 0000 017a 5200 0178 1001  .........zR..x..
+000000b0: 1b0c 0708 3f01 0000 1c00 0000 1c00 0000  ....?...........
+000000c0: 0000 0000 2500 0000 0041 0e10 3f02 430d  ....%....A..?.C.
+000000d0: 0660 0c07 0800 0000 002e 7379 6d74 6162  .`........symtab
+000000e0: 002e 7374 7274 6162 002e 7368 7374 7274  ..strtab..shstrt
+000000f0: 6162 002e 7265 6c61 2e74 6578 7400 2e64  ab..rela.text..d
+00000100: 6174 6100 2e62 7373 002e 726f 6461 7461  ata..bss..rodata
+00000110: 002e 636f 6d6d 656e 7400 2e6e 6f74 652e  ..comment..note.
+00000120: 474e 552d 7374 6163 6b00 2e72 656c 612e  GNU-stack..rela.
+00000130: 6568 5f66 7261 6d65 0000 0000 0000 0000  eh_frame........
+00000140: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000150: 0000 0000 0000 0000 0100 0000 0400 3f3f  ..............??
+00000160: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000170: 0000 0000 0300 0100 0000 0000 0000 0000  ................
+00000180: 0000 0000 0000 0000 0000 0000 0300 0300  ................
+00000190: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000001a0: 0000 0000 0300 0400 0000 0000 0000 0000  ................
+000001b0: 0000 0000 0000 0000 0000 0000 0300 0500  ................
+000001c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000001d0: 0000 0000 0300 0700 0000 0000 0000 0000  ................
+000001e0: 0000 0000 0000 0000 0000 0000 0300 0800  ................
+000001f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000200: 0000 0000 0300 0600 0000 0000 0000 0000  ................
+00000210: 0000 0000 0000 0000 0f00 0000 1200 0100  ................
+00000220: 0000 0000 0000 0000 2500 0000 0000 0000  ........%.......
+00000230: 1400 0000 1000 0000 0000 0000 0000 0000  ................
+00000240: 0000 0000 0000 0000 0068 656c 6c6f 5f77  .........hello_w
+00000250: 6f72 6c64 2e63 006d 6169 6e00 7072 696e  orld.c.main.prin
+00000260: 7466 0000 0000 0000 1000 0000 0000 0000  tf..............
+00000270: 0a00 0000 0500 0000 0000 0000 0000 0000  ................
+00000280: 1a00 0000 0000 0000 0200 0000 0a00 0000  ................
+00000290: 3f3f 3f3f 3f3f 3f3f 2000 0000 0000 0000  ???????? .......
+000002a0: 0200 0000 0200 0000 0000 0000 0000 0000  ................
+000002b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000002c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000002d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000002e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000002f0: 2000 0000 0100 0000 0600 0000 0000 0000   ...............
+00000300: 0000 0000 0000 0000 4000 0000 0000 0000  ........@.......
+00000310: 2500 0000 0000 0000 0000 0000 0000 0000  %...............
+00000320: 0100 0000 0000 0000 0000 0000 0000 0000  ................
+00000330: 1b00 0000 0400 0000 4000 0000 0000 0000  ........@.......
+00000340: 0000 0000 0000 0000 6802 0000 0000 0000  ........h.......
+00000350: 3000 0000 0000 0000 0b00 0000 0100 0000  0...............
+00000360: 0800 0000 0000 0000 1800 0000 0000 0000  ................
+00000370: 2600 0000 0100 0000 0300 0000 0000 0000  &amp;...............
+00000380: 0000 0000 0000 0000 6500 0000 0000 0000  ........e.......
+00000390: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000003a0: 0100 0000 0000 0000 0000 0000 0000 0000  ................
+000003b0: 2c00 0000 0800 0000 0300 0000 0000 0000  ,...............
+000003c0: 0000 0000 0000 0000 6500 0000 0000 0000  ........e.......
+000003d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000003e0: 0100 0000 0000 0000 0000 0000 0000 0000  ................
+000003f0: 3100 0000 0100 0000 0200 0000 0000 0000  1...............
+00000400: 0000 0000 0000 0000 6500 0000 0000 0000  ........e.......
+00000410: 0d00 0000 0000 0000 0000 0000 0000 0000  ................
+00000420: 0100 0000 0000 0000 0000 0000 0000 0000  ................
+00000430: 3900 0000 0100 0000 3000 0000 0000 0000  9.......0.......
+00000440: 0000 0000 0000 0000 7200 0000 0000 0000  ........r.......
+00000450: 2e00 0000 0000 0000 0000 0000 0000 0000  ................
+00000460: 0100 0000 0000 0000 0100 0000 0000 0000  ................
+00000470: 4200 0000 0100 0000 0000 0000 0000 0000  B...............
+00000480: 0000 0000 0000 0000 3f00 0000 0000 0000  ........?.......
+00000490: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000004a0: 0100 0000 0000 0000 0000 0000 0000 0000  ................
+000004b0: 5700 0000 0100 0000 0200 0000 0000 0000  W...............
+000004c0: 0000 0000 0000 0000 3f00 0000 0000 0000  ........?.......
+000004d0: 3800 0000 0000 0000 0000 0000 0000 0000  8...............
+000004e0: 0800 0000 0000 0000 0000 0000 0000 0000  ................
+000004f0: 5200 0000 0400 0000 4000 0000 0000 0000  R.......@.......
+00000500: 0000 0000 0000 0000 3f02 0000 0000 0000  ........?.......
+00000510: 1800 0000 0000 0000 0b00 0000 0800 0000  ................
+00000520: 0800 0000 0000 0000 1800 0000 0000 0000  ................
+00000530: 1100 0000 0300 0000 0000 0000 0000 0000  ................
+00000540: 0000 0000 0000 0000 3f00 0000 0000 0000  ........?.......
+00000550: 6100 0000 0000 0000 0000 0000 0000 0000  a...............
+00000560: 0100 0000 0000 0000 0000 0000 0000 0000  ................
+00000570: 0100 0000 0200 0000 0000 0000 0000 0000  ................
+00000580: 0000 0000 0000 0000 4001 0000 0000 0000  ........@.......
+00000590: 0801 0000 0000 0000 0c00 0000 0900 0000  ................
+000005a0: 0800 0000 0000 0000 1800 0000 0000 0000  ................
+000005b0: 0900 0000 0300 0000 0000 0000 0000 0000  ................
+000005c0: 0000 0000 0000 0000 4802 0000 0000 0000  ........H.......
+000005d0: 1b00 0000 0000 0000 0000 0000 0000 0000  ................
+000005e0: 0100 0000 0000 0000 0000 0000 0000 0000  ................
+000005f0: 0a                                       .
+</code></pre>
+<h2><a class="header" href="#link" id="link">link</a></h2>
+<p>link is the purpose of linking all object file to one executable binary file. For the above example, the <code>printf</code> function location in <code>libc.so</code> or <code>libc.a</code>, not in <code>hello_world.c</code>, so we should link them.</p>
+<p>run the following command to generate executable binary file:</p>
+<pre><code>gcc -o hello_world hello_world.c
+</code></pre>
+<p>we can show which system library the <code>hello_world</code> used with <code>ldd</code> command:</p>
+<pre><code class="language-text">[root@earnbillion:tmp]$ ldd hello_world
+	linux-vdso.so.1 =&gt;  (0x00007ffdbb93e000)
+	libc.so.6 =&gt; /lib64/libc.so.6 (0x00007f2843967000)
+	/lib64/ld-linux-x86-64.so.2 (0x000055c64aa4b000)
+</code></pre>
+<p>and the executable binary file content:</p>
+<pre><code>
+00000000: 7f45 4c46 0201 0100 0000 0000 0000 0000  .ELF............
+00000010: 0200 3e00 0100 0000 4004 4000 0000 0000  ..&gt;.....@.@.....
+00000020: 4000 0000 0000 0000 3f19 0000 0000 0000  @.......?.......
+00000030: 0000 0000 4000 3800 0900 4000 1e00 1b00  ....@.8...@.....
+00000040: 0600 0000 0500 0000 4000 0000 0000 0000  ........@.......
+00000050: 4000 4000 0000 0000 4000 4000 0000 0000  @.@.....@.@.....
+00000060: 3f01 0000 0000 0000 3f01 0000 0000 0000  ?.......?.......
+00000070: 0800 0000 0000 0000 0300 0000 0400 0000  ................
+00000080: 3802 0000 0000 0000 3802 4000 0000 0000  8.......8.@.....
+00000090: 3802 4000 0000 0000 1c00 0000 0000 0000  8.@.............
+000000a0: 1c00 0000 0000 0000 0100 0000 0000 0000  ................
+000000b0: 0100 0000 0500 0000 0000 0000 0000 0000  ................
+000000c0: 0000 4000 0000 0000 0000 4000 0000 0000  ..@.......@.....
+000000d0: 2c07 0000 0000 0000 2c07 0000 0000 0000  ,.......,.......
+000000e0: 0000 2000 0000 0000 0100 0000 0600 0000  .. .............
+000000f0: 100e 0000 0000 0000 100e 6000 0000 0000  ..........`.....
+00000100: 100e 6000 0000 0000 2402 0000 0000 0000  ..`.....$.......
+00000110: 2802 0000 0000 0000 0000 2000 0000 0000  (......... .....
+00000120: 0200 0000 0600 0000 280e 0000 0000 0000  ........(.......
+00000130: 280e 6000 0000 0000 280e 6000 0000 0000  (.`.....(.`.....
+00000140: 3f01 0000 0000 0000 3f01 0000 0000 0000  ?.......?.......
+00000150: 0800 0000 0000 0000 0400 0000 0400 0000  ................
+00000160: 5402 0000 0000 0000 5402 4000 0000 0000  T.......T.@.....
+00000170: 5402 4000 0000 0000 4400 0000 0000 0000  T.@.....D.......
+00000180: 4400 0000 0000 0000 0400 0000 0000 0000  D...............
+00000190: 503f 7464 0400 0000 0006 0000 0000 0000  P?td............
+000001a0: 0006 4000 0000 0000 0006 4000 0000 0000  ..@.......@.....
+000001b0: 3400 0000 0000 0000 3400 0000 0000 0000  4.......4.......
+000001c0: 0400 0000 0000 0000 513f 7464 0600 0000  ........Q?td....
+000001d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000001e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000001f0: 0000 0000 0000 0000 1000 0000 0000 0000  ................
+00000200: 523f 7464 0400 0000 100e 0000 0000 0000  R?td............
+00000210: 100e 6000 0000 0000 100e 6000 0000 0000  ..`.......`.....
+00000220: 3f01 0000 0000 0000 3f01 0000 0000 0000  ?.......?.......
+00000230: 0100 0000 0000 0000 2f6c 6962 3634 2f6c  ......../lib64/l
+00000240: 642d 6c69 6e75 782d 7838 362d 3634 2e73  d-linux-x86-64.s
+00000250: 6f2e 3200 0400 0000 1000 0000 0100 0000  o.2.............
+00000260: 474e 5500 0000 0000 0200 0000 0600 0000  GNU.............
+00000270: 2000 0000 0400 0000 1400 0000 0300 0000   ...............
+00000280: 474e 5500 3f3f 0943 5b3f 3f3f 3f07 3f23  GNU.??.C[????.?#
+00000290: 2a3f 3f3f 735d 523f 0100 0000 0100 0000  *???s]R?........
+000002a0: 0100 0000 0000 0000 0000 0000 0000 0000  ................
+000002b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000002c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000002d0: 0b00 0000 1200 0000 0000 0000 0000 0000  ................
+000002e0: 0000 0000 0000 0000 1200 0000 1200 0000  ................
+000002f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000300: 2400 0000 2000 0000 0000 0000 0000 0000  $... ...........
+00000310: 0000 0000 0000 0000 006c 6962 632e 736f  .........libc.so
+00000320: 2e36 0070 7269 6e74 6600 5f5f 6c69 6263  .6.printf.__libc
+00000330: 5f73 7461 7274 5f6d 6169 6e00 5f5f 676d  _start_main.__gm
+00000340: 6f6e 5f73 7461 7274 5f5f 0047 4c49 4243  on_start__.GLIBC
+00000350: 5f32 2e32 2e35 0000 0000 0200 0200 0000  _2.2.5..........
+00000360: 0100 0100 0100 0000 1000 0000 0000 0000  ................
+00000370: 751a 6909 0000 0200 3300 0000 0000 0000  u.i.....3.......
+00000380: 3f0f 6000 0000 0000 0600 0000 0300 0000  ?.`.............
+00000390: 0000 0000 0000 0000 1810 6000 0000 0000  ..........`.....
+000003a0: 0700 0000 0100 0000 0000 0000 0000 0000  ................
+000003b0: 2010 6000 0000 0000 0700 0000 0200 0000   .`.............
+000003c0: 0000 0000 0000 0000 2810 6000 0000 0000  ........(.`.....
+000003d0: 0700 0000 0300 0000 0000 0000 0000 0000  ................
+000003e0: 483f 3f08 483f 050d 0c20 0048 3f3f 7405  H??.H?... .H??t.
+000003f0: 3f3b 0000 0048 3f3f 083f 0000 0000 0000  ?;...H??.?......
+00000400: 3f35 020c 2000 3f25 040c 2000 0f1f 4000  ?5.. .?%.. ...@.
+00000410: 3f25 020c 2000 6800 0000 003f 3f3f 3f3f  ?%.. .h....?????
+00000420: 3f25 3f0b 2000 6801 0000 003f 3f3f 3f3f  ?%?. .h....?????
+00000430: 3f25 3f0b 2000 6802 0000 003f 3f3f 3f3f  ?%?. .h....?????
+00000440: 313f 493f 3f5e 483f 3f48 3f3f 3f50 5449  1?I??^H??H???PTI
+00000450: 3f3f 3f05 4000 483f 3f60 0540 0048 3f3f  ???.@.H??`.@.H??
+00000460: 2d05 4000 3f3f 3f3f 3f3f 660f 1f44 0000  -.@.??????f..D..
+00000470: 3f3f 1060 0055 482d 3810 6000 483f 3f0e  ??.`.UH-8.`.H??.
+00000480: 483f 3f77 025d c3b8 0000 0000 483f 3f74  H??w.]......H??t
+00000490: 3f5d 3f38 1060 003f 3f0f 1f3f 0000 0000  ?]?8.`.??..?....
+000004a0: 3f38 1060 0055 482d 3810 6000 483f 3f03  ?8.`.UH-8.`.H??.
+000004b0: 483f 3f48 3f3f 483f 3f3f 4801 3f48 3f3f  H??H??H???H.?H??
+000004c0: 7502 5dc3 ba00 0000 0048 3f3f 743f 5d48  u.]......H??t?]H
+000004d0: 3fc6 bf38 1060 003f 3f0f 1f3f 0000 0000  ?..8.`.??..?....
+000004e0: 3f3d 4d0b 2000 0075 1155 483f 3f3f 7e3f  ?=M. ..u.UH???~?
+000004f0: 3f3f 5d3f 053a 0b20 0001 3f3f 0f1f 4000  ??]?.:. ..??..@.
+00000500: 483f 3d18 0920 0000 741e 3f00 0000 0048  H?=.. ..t.?....H
+00000510: 3f3f 7414 553f 200e 6000 483f 3f3f 3f5d  ??t.U? .`.H????]
+00000520: 3f7b 3f3f 3f0f 1f00 3f73 3f3f 3f55 483f  ?{???...?s???UH?
+00000530: 3f48 3f3f 103f 7d3f 483f 753f 3f3f 0540  ?H??.?}?H?u???.@
+00000540: 003f 0000 0000 3f3f 3f3f 3f3f 0000 0000  .?....??????....
+00000550: 3f3f 662e 0f1f 3f00 0000 0000 0f1f 4000  ??f...?.......@.
+00000560: 4157 413f 3f41 5649 3f3f 4155 493f 3f41  AWA??AVI??AUI??A
+00000570: 544c 3f25 3f08 2000 5548 3f2d 3f08 2000  TL?%?. .UH?-?. .
+00000580: 534c 293f 313f 483f 3f03 483f 3f08 3f4d  SL)?1?H??.H??.?M
+00000590: 3f3f 3f48 3f3f 741e 0f1f 3f00 0000 0000  ???H??t...?.....
+000005a0: 4c3f 3f4c 3f3f 443f 3f41 3f14 3f48 3f3f  L??L??D??A?.?H??
+000005b0: 0148 393f 753f 483f 3f08 5b5d 415c 415d  .H9?u?H??.[]A\A]
+000005c0: 415e 415f c390 662e 0f1f 3f00 0000 0000  A^A_..f...?.....
+000005d0: 3f3f 0000 483f 3f08 483f 3f08 3f00 0000  ??..H??.H??.?...
+000005e0: 0100 0200 0000 0000 0000 0000 0000 0000  ................
+000005f0: 4865 6c6c 6f20 576f 726c 6421 0000 0000  Hello World!....
+00000600: 011b 033b 3400 0000 0500 0000 003f 3f3f  ...;4........???
+00000610: 3f00 0000 403f 3f3f 5000 0000 2d3f 3f3f  ?...@???P...-???
+00000620: 3f00 0000 603f 3f3f 3f00 0000 3f3f 3f3f  ?...`????...????
+00000630: 1001 0000 0000 0000 1400 0000 0000 0000  ................
+00000640: 017a 5200 0178 1001 1b0c 0708 3f01 0710  .zR..x......?...
+00000650: 1400 0000 1c00 0000 3f3f 3f3f 2a00 0000  ........????*...
+00000660: 0000 0000 0000 0000 1400 0000 0000 0000  ................
+00000670: 017a 5200 0178 1001 1b0c 0708 3f01 0000  .zR..x......?...
+00000680: 2400 0000 1c00 0000 783f 3f3f 4000 0000  $.......x???@...
+00000690: 000e 1046 0e18 4a0f 0b77 083f 003f 1a3b  ...F..J..w.?.?.;
+000006a0: 2a33 2422 0000 0000 1c00 0000 4400 0000  *3$&quot;........D...
+000006b0: 7d3f 3f3f 2500 0000 0041 0e10 3f02 430d  }???%....A..?.C.
+000006c0: 0660 0c07 0800 0000 4400 0000 6400 0000  .`......D...d...
+000006d0: 3f3f 3f3f 6500 0000 0042 0e10 3f02 450e  ????e....B..?.E.
+000006e0: 183f 0345 0e20 3f04 450e 283f 0548 0e30  .?.E. ?.E.(?.H.0
+000006f0: 3f06 480e 383f 074d 0e40 6c0e 3841 0e30  ?.H.8?.M.@l.8A.0
+00000700: 410e 2842 0e20 420e 1842 0e10 420e 0800  A.(B. B..B..B...
+00000710: 1400 0000 3f00 0000 3f3f 3f3f 0200 0000  ....?...????....
+00000720: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000730: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000740: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000750: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000760: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000770: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000780: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000790: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000007a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000007b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000007c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000007d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000007e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000007f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000800: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000810: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000820: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000830: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000840: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000850: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000860: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000870: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000880: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000890: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000008a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000008b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000008c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000008d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000008e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000008f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000900: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000910: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000920: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000930: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000940: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000950: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000960: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000970: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000980: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000990: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000009a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000009b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000009c0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000009d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000009e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000009f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a00: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a10: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a20: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a30: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a40: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a50: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a60: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a70: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a80: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000a90: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000aa0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000ab0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000ac0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000ad0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000ae0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000af0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b00: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b10: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b20: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b30: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b40: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b50: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b60: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b70: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b80: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000b90: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000ba0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000bb0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000bc0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000bd0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000be0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000bf0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c00: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c10: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c20: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c30: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c40: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c50: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c60: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c70: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c80: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c90: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000ca0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000cb0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000cc0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000cd0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000ce0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000cf0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d00: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d10: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d20: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d30: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d40: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d50: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d60: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d70: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d80: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000d90: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000da0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000db0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000dc0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000dd0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000de0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000df0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000e00: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000e10: 0005 4000 0000 0000 3f04 4000 0000 0000  ..@.....?.@.....
+00000e20: 0000 0000 0000 0000 0100 0000 0000 0000  ................
+00000e30: 0100 0000 0000 0000 0c00 0000 0000 0000  ................
+00000e40: 3f03 4000 0000 0000 0d00 0000 0000 0000  ?.@.............
+00000e50: 3f05 4000 0000 0000 1900 0000 0000 0000  ?.@.............
+00000e60: 100e 6000 0000 0000 1b00 0000 0000 0000  ..`.............
+00000e70: 0800 0000 0000 0000 1a00 0000 0000 0000  ................
+00000e80: 180e 6000 0000 0000 1c00 0000 0000 0000  ..`.............
+00000e90: 0800 0000 0000 0000 3f3f 3f6f 0000 0000  ........???o....
+00000ea0: 3f02 4000 0000 0000 0500 0000 0000 0000  ?.@.............
+00000eb0: 1803 4000 0000 0000 0600 0000 0000 0000  ..@.............
+00000ec0: 3f02 4000 0000 0000 0a00 0000 0000 0000  ?.@.............
+00000ed0: 3f00 0000 0000 0000 0b00 0000 0000 0000  ?...............
+00000ee0: 1800 0000 0000 0000 1500 0000 0000 0000  ................
+00000ef0: 0000 0000 0000 0000 0300 0000 0000 0000  ................
+00000f00: 0010 6000 0000 0000 0200 0000 0000 0000  ..`.............
+00000f10: 4800 0000 0000 0000 1400 0000 0000 0000  H...............
+00000f20: 0700 0000 0000 0000 1700 0000 0000 0000  ................
+00000f30: 3f03 4000 0000 0000 0700 0000 0000 0000  ?.@.............
+00000f40: 3f03 4000 0000 0000 0800 0000 0000 0000  ?.@.............
+00000f50: 1800 0000 0000 0000 0900 0000 0000 0000  ................
+00000f60: 1800 0000 0000 0000 3f3f 3f6f 0000 0000  ........???o....
+00000f70: 6003 4000 0000 0000 3f3f 3f6f 0000 0000  `.@.....???o....
+00000f80: 0100 0000 0000 0000 3f3f 3f6f 0000 0000  ........???o....
+00000f90: 5803 4000 0000 0000 0000 0000 0000 0000  X.@.............
+00000fa0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000fb0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000fc0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000fd0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000fe0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000ff0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001000: 280e 6000 0000 0000 0000 0000 0000 0000  (.`.............
+00001010: 0000 0000 0000 0000 1604 4000 0000 0000  ..........@.....
+00001020: 2604 4000 0000 0000 3604 4000 0000 0000  &amp;.@.....6.@.....
+00001030: 0000 0000 4743 433a 2028 474e 5529 2034  ....GCC: (GNU) 4
+00001040: 2e38 2e35 2032 3031 3530 3632 3320 2852  .8.5 20150623 (R
+00001050: 6564 2048 6174 2034 2e38 2e35 2d33 3629  ed Hat 4.8.5-36)
+00001060: 0000 2e73 796d 7461 6200 2e73 7472 7461  ...symtab..strta
+00001070: 6200 2e73 6873 7472 7461 6200 2e69 6e74  b..shstrtab..int
+00001080: 6572 7000 2e6e 6f74 652e 4142 492d 7461  erp..note.ABI-ta
+00001090: 6700 2e6e 6f74 652e 676e 752e 6275 696c  g..note.gnu.buil
+000010a0: 642d 6964 002e 676e 752e 6861 7368 002e  d-id..gnu.hash..
+000010b0: 6479 6e73 796d 002e 6479 6e73 7472 002e  dynsym..dynstr..
+000010c0: 676e 752e 7665 7273 696f 6e00 2e67 6e75  gnu.version..gnu
+000010d0: 2e76 6572 7369 6f6e 5f72 002e 7265 6c61  .version_r..rela
+000010e0: 2e64 796e 002e 7265 6c61 2e70 6c74 002e  .dyn..rela.plt..
+000010f0: 696e 6974 002e 7465 7874 002e 6669 6e69  init..text..fini
+00001100: 002e 726f 6461 7461 002e 6568 5f66 7261  ..rodata..eh_fra
+00001110: 6d65 5f68 6472 002e 6568 5f66 7261 6d65  me_hdr..eh_frame
+00001120: 002e 696e 6974 5f61 7272 6179 002e 6669  ..init_array..fi
+00001130: 6e69 5f61 7272 6179 002e 6a63 7200 2e64  ni_array..jcr..d
+00001140: 796e 616d 6963 002e 676f 7400 2e67 6f74  ynamic..got..got
+00001150: 2e70 6c74 002e 6461 7461 002e 6273 7300  .plt..data..bss.
+00001160: 2e63 6f6d 6d65 6e74 0000 0000 0000 0000  .comment........
+00001170: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001180: 0000 0000 0000 0000 0000 0000 0300 0100  ................
+00001190: 3802 4000 0000 0000 0000 0000 0000 0000  8.@.............
+000011a0: 0000 0000 0300 0200 5402 4000 0000 0000  ........T.@.....
+000011b0: 0000 0000 0000 0000 0000 0000 0300 0300  ................
+000011c0: 7402 4000 0000 0000 0000 0000 0000 0000  t.@.............
+000011d0: 0000 0000 0300 0400 3f02 4000 0000 0000  ........?.@.....
+000011e0: 0000 0000 0000 0000 0000 0000 0300 0500  ................
+000011f0: 3f02 4000 0000 0000 0000 0000 0000 0000  ?.@.............
+00001200: 0000 0000 0300 0600 1803 4000 0000 0000  ..........@.....
+00001210: 0000 0000 0000 0000 0000 0000 0300 0700  ................
+00001220: 5803 4000 0000 0000 0000 0000 0000 0000  X.@.............
+00001230: 0000 0000 0300 0800 6003 4000 0000 0000  ........`.@.....
+00001240: 0000 0000 0000 0000 0000 0000 0300 0900  ................
+00001250: 3f03 4000 0000 0000 0000 0000 0000 0000  ?.@.............
+00001260: 0000 0000 0300 0a00 3f03 4000 0000 0000  ........?.@.....
+00001270: 0000 0000 0000 0000 0000 0000 0300 0b00  ................
+00001280: 3f03 4000 0000 0000 0000 0000 0000 0000  ?.@.............
+00001290: 0000 0000 0300 0c00 0004 4000 0000 0000  ..........@.....
+000012a0: 0000 0000 0000 0000 0000 0000 0300 0d00  ................
+000012b0: 4004 4000 0000 0000 0000 0000 0000 0000  @.@.............
+000012c0: 0000 0000 0300 0e00 3f05 4000 0000 0000  ........?.@.....
+000012d0: 0000 0000 0000 0000 0000 0000 0300 0f00  ................
+000012e0: 3f05 4000 0000 0000 0000 0000 0000 0000  ?.@.............
+000012f0: 0000 0000 0300 1000 0006 4000 0000 0000  ..........@.....
+00001300: 0000 0000 0000 0000 0000 0000 0300 1100  ................
+00001310: 3806 4000 0000 0000 0000 0000 0000 0000  8.@.............
+00001320: 0000 0000 0300 1200 100e 6000 0000 0000  ..........`.....
+00001330: 0000 0000 0000 0000 0000 0000 0300 1300  ................
+00001340: 180e 6000 0000 0000 0000 0000 0000 0000  ..`.............
+00001350: 0000 0000 0300 1400 200e 6000 0000 0000  ........ .`.....
+00001360: 0000 0000 0000 0000 0000 0000 0300 1500  ................
+00001370: 280e 6000 0000 0000 0000 0000 0000 0000  (.`.............
+00001380: 0000 0000 0300 1600 3f0f 6000 0000 0000  ........?.`.....
+00001390: 0000 0000 0000 0000 0000 0000 0300 1700  ................
+000013a0: 0010 6000 0000 0000 0000 0000 0000 0000  ..`.............
+000013b0: 0000 0000 0300 1800 3010 6000 0000 0000  ........0.`.....
+000013c0: 0000 0000 0000 0000 0000 0000 0300 1900  ................
+000013d0: 3410 6000 0000 0000 0000 0000 0000 0000  4.`.............
+000013e0: 0000 0000 0300 1a00 0000 0000 0000 0000  ................
+000013f0: 0000 0000 0000 0000 0100 0000 0400 3f3f  ..............??
+00001400: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001410: 0c00 0000 0100 1400 200e 6000 0000 0000  ........ .`.....
+00001420: 0000 0000 0000 0000 1900 0000 0200 0d00  ................
+00001430: 7004 4000 0000 0000 0000 0000 0000 0000  p.@.............
+00001440: 2e00 0000 0200 0d00 3f04 4000 0000 0000  ........?.@.....
+00001450: 0000 0000 0000 0000 4100 0000 0200 0d00  ........A.......
+00001460: 3f04 4000 0000 0000 0000 0000 0000 0000  ?.@.............
+00001470: 5700 0000 0100 1900 3410 6000 0000 0000  W.......4.`.....
+00001480: 0100 0000 0000 0000 6600 0000 0100 1300  ........f.......
+00001490: 180e 6000 0000 0000 0000 0000 0000 0000  ..`.............
+000014a0: 3f00 0000 0200 0d00 0005 4000 0000 0000  ?.........@.....
+000014b0: 0000 0000 0000 0000 3f00 0000 0100 1200  ........?.......
+000014c0: 100e 6000 0000 0000 0000 0000 0000 0000  ..`.............
+000014d0: 3f00 0000 0400 3f3f 0000 0000 0000 0000  ?.....??........
+000014e0: 0000 0000 0000 0000 0100 0000 0400 3f3f  ..............??
+000014f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001500: 3f00 0000 0100 1100 2807 4000 0000 0000  ?.......(.@.....
+00001510: 0000 0000 0000 0000 3f00 0000 0100 1400  ........?.......
+00001520: 200e 6000 0000 0000 0000 0000 0000 0000   .`.............
+00001530: 0000 0000 0400 3f3f 0000 0000 0000 0000  ......??........
+00001540: 0000 0000 0000 0000 3f00 0000 0000 1200  ........?.......
+00001550: 180e 6000 0000 0000 0000 0000 0000 0000  ..`.............
+00001560: 3f00 0000 0100 1500 280e 6000 0000 0000  ?.......(.`.....
+00001570: 0000 0000 0000 0000 3f00 0000 0000 1200  ........?.......
+00001580: 100e 6000 0000 0000 0000 0000 0000 0000  ..`.............
+00001590: 0d01 0000 0100 1700 0010 6000 0000 0000  ..........`.....
+000015a0: 0000 0000 0000 0000 2301 0000 1200 0d00  ........#.......
+000015b0: 3f05 4000 0000 0000 0200 0000 0000 0000  ?.@.............
+000015c0: 3301 0000 2000 0000 0000 0000 0000 0000  3... ...........
+000015d0: 0000 0000 0000 0000 4f01 0000 2000 1800  ........O... ...
+000015e0: 3010 6000 0000 0000 0000 0000 0000 0000  0.`.............
+000015f0: 5a01 0000 1000 1800 3410 6000 0000 0000  Z.......4.`.....
+00001600: 0000 0000 0000 0000 6101 0000 1200 0e00  ........a.......
+00001610: 3f05 4000 0000 0000 0000 0000 0000 0000  ?.@.............
+00001620: 6701 0000 1200 0000 0000 0000 0000 0000  g...............
+00001630: 0000 0000 0000 0000 7b01 0000 1200 0000  ........{.......
+00001640: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001650: 3f01 0000 1000 1800 3010 6000 0000 0000  ?.......0.`.....
+00001660: 0000 0000 0000 0000 3f01 0000 2000 0000  ........?... ...
+00001670: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001680: 3f01 0000 1102 0f00 3f05 4000 0000 0000  ?.......?.@.....
+00001690: 0000 0000 0000 0000 3f01 0000 1100 0f00  ........?.......
+000016a0: 3f05 4000 0000 0000 0400 0000 0000 0000  ?.@.............
+000016b0: 3f01 0000 1200 0d00 6005 4000 0000 0000  ?.......`.@.....
+000016c0: 6500 0000 0000 0000 3f01 0000 1000 1900  e.......?.......
+000016d0: 3810 6000 0000 0000 0000 0000 0000 0000  8.`.............
+000016e0: 3f01 0000 1200 0d00 4004 4000 0000 0000  ?.......@.@.....
+000016f0: 0000 0000 0000 0000 3f01 0000 1000 1900  ........?.......
+00001700: 3410 6000 0000 0000 0000 0000 0000 0000  4.`.............
+00001710: 3f01 0000 1200 0d00 2d05 4000 0000 0000  ?.......-.@.....
+00001720: 2500 0000 0000 0000 3f01 0000 2000 0000  %.......?... ...
+00001730: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001740: 1302 0000 1102 1800 3810 6000 0000 0000  ........8.`.....
+00001750: 0000 0000 0000 0000 1f02 0000 2000 0000  ............ ...
+00001760: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001770: 3902 0000 1200 0b00 3f03 4000 0000 0000  9.......?.@.....
+00001780: 0000 0000 0000 0000 0063 7274 7374 7566  .........crtstuf
+00001790: 662e 6300 5f5f 4a43 525f 4c49 5354 5f5f  f.c.__JCR_LIST__
+000017a0: 0064 6572 6567 6973 7465 725f 746d 5f63  .deregister_tm_c
+000017b0: 6c6f 6e65 7300 7265 6769 7374 6572 5f74  lones.register_t
+000017c0: 6d5f 636c 6f6e 6573 005f 5f64 6f5f 676c  m_clones.__do_gl
+000017d0: 6f62 616c 5f64 746f 7273 5f61 7578 0063  obal_dtors_aux.c
+000017e0: 6f6d 706c 6574 6564 2e36 3335 3500 5f5f  ompleted.6355.__
+000017f0: 646f 5f67 6c6f 6261 6c5f 6474 6f72 735f  do_global_dtors_
+00001800: 6175 785f 6669 6e69 5f61 7272 6179 5f65  aux_fini_array_e
+00001810: 6e74 7279 0066 7261 6d65 5f64 756d 6d79  ntry.frame_dummy
+00001820: 005f 5f66 7261 6d65 5f64 756d 6d79 5f69  .__frame_dummy_i
+00001830: 6e69 745f 6172 7261 795f 656e 7472 7900  nit_array_entry.
+00001840: 6865 6c6c 6f5f 776f 726c 642e 6300 5f5f  hello_world.c.__
+00001850: 4652 414d 455f 454e 445f 5f00 5f5f 4a43  FRAME_END__.__JC
+00001860: 525f 454e 445f 5f00 5f5f 696e 6974 5f61  R_END__.__init_a
+00001870: 7272 6179 5f65 6e64 005f 4459 4e41 4d49  rray_end._DYNAMI
+00001880: 4300 5f5f 696e 6974 5f61 7272 6179 5f73  C.__init_array_s
+00001890: 7461 7274 005f 474c 4f42 414c 5f4f 4646  tart._GLOBAL_OFF
+000018a0: 5345 545f 5441 424c 455f 005f 5f6c 6962  SET_TABLE_.__lib
+000018b0: 635f 6373 755f 6669 6e69 005f 4954 4d5f  c_csu_fini._ITM_
+000018c0: 6465 7265 6769 7374 6572 544d 436c 6f6e  deregisterTMClon
+000018d0: 6554 6162 6c65 0064 6174 615f 7374 6172  eTable.data_star
+000018e0: 7400 5f65 6461 7461 005f 6669 6e69 0070  t._edata._fini.p
+000018f0: 7269 6e74 6640 4047 4c49 4243 5f32 2e32  rintf@@GLIBC_2.2
+00001900: 2e35 005f 5f6c 6962 635f 7374 6172 745f  .5.__libc_start_
+00001910: 6d61 696e 4040 474c 4942 435f 322e 322e  main@@GLIBC_2.2.
+00001920: 3500 5f5f 6461 7461 5f73 7461 7274 005f  5.__data_start._
+00001930: 5f67 6d6f 6e5f 7374 6172 745f 5f00 5f5f  _gmon_start__.__
+00001940: 6473 6f5f 6861 6e64 6c65 005f 494f 5f73  dso_handle._IO_s
+00001950: 7464 696e 5f75 7365 6400 5f5f 6c69 6263  tdin_used.__libc
+00001960: 5f63 7375 5f69 6e69 7400 5f65 6e64 005f  _csu_init._end._
+00001970: 7374 6172 7400 5f5f 6273 735f 7374 6172  start.__bss_star
+00001980: 7400 6d61 696e 005f 4a76 5f52 6567 6973  t.main._Jv_Regis
+00001990: 7465 7243 6c61 7373 6573 005f 5f54 4d43  terClasses.__TMC
+000019a0: 5f45 4e44 5f5f 005f 4954 4d5f 7265 6769  _END__._ITM_regi
+000019b0: 7374 6572 544d 436c 6f6e 6554 6162 6c65  sterTMCloneTable
+000019c0: 005f 696e 6974 0000 0000 0000 0000 0000  ._init..........
+000019d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000019e0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000019f0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00001a00: 0000 0000 0000 0000 1b00 0000 0100 0000  ................
+00001a10: 0200 0000 0000 0000 3802 4000 0000 0000  ........8.@.....
+00001a20: 3802 0000 0000 0000 1c00 0000 0000 0000  8...............
+00001a30: 0000 0000 0000 0000 0100 0000 0000 0000  ................
+00001a40: 0000 0000 0000 0000 2300 0000 0700 0000  ........#.......
+00001a50: 0200 0000 0000 0000 5402 4000 0000 0000  ........T.@.....
+00001a60: 5402 0000 0000 0000 2000 0000 0000 0000  T....... .......
+00001a70: 0000 0000 0000 0000 0400 0000 0000 0000  ................
+00001a80: 0000 0000 0000 0000 3100 0000 0700 0000  ........1.......
+00001a90: 0200 0000 0000 0000 7402 4000 0000 0000  ........t.@.....
+00001aa0: 7402 0000 0000 0000 2400 0000 0000 0000  t.......$.......
+00001ab0: 0000 0000 0000 0000 0400 0000 0000 0000  ................
+00001ac0: 0000 0000 0000 0000 4400 0000 3f3f 3f6f  ........D...???o
+00001ad0: 0200 0000 0000 0000 3f02 4000 0000 0000  ........?.@.....
+00001ae0: 3f02 0000 0000 0000 1c00 0000 0000 0000  ?...............
+00001af0: 0500 0000 0000 0000 0800 0000 0000 0000  ................
+00001b00: 0000 0000 0000 0000 4e00 0000 0b00 0000  ........N.......
+00001b10: 0200 0000 0000 0000 3f02 4000 0000 0000  ........?.@.....
+00001b20: 3f02 0000 0000 0000 6000 0000 0000 0000  ?.......`.......
+00001b30: 0600 0000 0100 0000 0800 0000 0000 0000  ................
+00001b40: 1800 0000 0000 0000 5600 0000 0300 0000  ........V.......
+00001b50: 0200 0000 0000 0000 1803 4000 0000 0000  ..........@.....
+00001b60: 1803 0000 0000 0000 3f00 0000 0000 0000  ........?.......
+00001b70: 0000 0000 0000 0000 0100 0000 0000 0000  ................
+00001b80: 0000 0000 0000 0000 5e00 0000 3f3f 3f6f  ........^...???o
+00001b90: 0200 0000 0000 0000 5803 4000 0000 0000  ........X.@.....
+00001ba0: 5803 0000 0000 0000 0800 0000 0000 0000  X...............
+00001bb0: 0500 0000 0000 0000 0200 0000 0000 0000  ................
+00001bc0: 0200 0000 0000 0000 6b00 0000 3f3f 3f6f  ........k...???o
+00001bd0: 0200 0000 0000 0000 6003 4000 0000 0000  ........`.@.....
+00001be0: 6003 0000 0000 0000 2000 0000 0000 0000  `....... .......
+00001bf0: 0600 0000 0100 0000 0800 0000 0000 0000  ................
+00001c00: 0000 0000 0000 0000 7a00 0000 0400 0000  ........z.......
+00001c10: 0200 0000 0000 0000 3f03 4000 0000 0000  ........?.@.....
+00001c20: 3f03 0000 0000 0000 1800 0000 0000 0000  ?...............
+00001c30: 0500 0000 0000 0000 0800 0000 0000 0000  ................
+00001c40: 1800 0000 0000 0000 3f00 0000 0400 0000  ........?.......
+00001c50: 4200 0000 0000 0000 3f03 4000 0000 0000  B.......?.@.....
+00001c60: 3f03 0000 0000 0000 4800 0000 0000 0000  ?.......H.......
+00001c70: 0500 0000 0c00 0000 0800 0000 0000 0000  ................
+00001c80: 1800 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001c90: 0600 0000 0000 0000 3f03 4000 0000 0000  ........?.@.....
+00001ca0: 3f03 0000 0000 0000 1a00 0000 0000 0000  ?...............
+00001cb0: 0000 0000 0000 0000 0400 0000 0000 0000  ................
+00001cc0: 0000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001cd0: 0600 0000 0000 0000 0004 4000 0000 0000  ..........@.....
+00001ce0: 0004 0000 0000 0000 4000 0000 0000 0000  ........@.......
+00001cf0: 0000 0000 0000 0000 1000 0000 0000 0000  ................
+00001d00: 1000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001d10: 0600 0000 0000 0000 4004 4000 0000 0000  ........@.@.....
+00001d20: 4004 0000 0000 0000 3f01 0000 0000 0000  @.......?.......
+00001d30: 0000 0000 0000 0000 1000 0000 0000 0000  ................
+00001d40: 0000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001d50: 0600 0000 0000 0000 3f05 4000 0000 0000  ........?.@.....
+00001d60: 3f05 0000 0000 0000 0900 0000 0000 0000  ?...............
+00001d70: 0000 0000 0000 0000 0400 0000 0000 0000  ................
+00001d80: 0000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001d90: 0200 0000 0000 0000 3f05 4000 0000 0000  ........?.@.....
+00001da0: 3f05 0000 0000 0000 1d00 0000 0000 0000  ?...............
+00001db0: 0000 0000 0000 0000 0800 0000 0000 0000  ................
+00001dc0: 0000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001dd0: 0200 0000 0000 0000 0006 4000 0000 0000  ..........@.....
+00001de0: 0006 0000 0000 0000 3400 0000 0000 0000  ........4.......
+00001df0: 0000 0000 0000 0000 0400 0000 0000 0000  ................
+00001e00: 0000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001e10: 0200 0000 0000 0000 3806 4000 0000 0000  ........8.@.....
+00001e20: 3806 0000 0000 0000 3f00 0000 0000 0000  8.......?.......
+00001e30: 0000 0000 0000 0000 0800 0000 0000 0000  ................
+00001e40: 0000 0000 0000 0000 3f00 0000 0e00 0000  ........?.......
+00001e50: 0300 0000 0000 0000 100e 6000 0000 0000  ..........`.....
+00001e60: 100e 0000 0000 0000 0800 0000 0000 0000  ................
+00001e70: 0000 0000 0000 0000 0800 0000 0000 0000  ................
+00001e80: 0000 0000 0000 0000 3f00 0000 0f00 0000  ........?.......
+00001e90: 0300 0000 0000 0000 180e 6000 0000 0000  ..........`.....
+00001ea0: 180e 0000 0000 0000 0800 0000 0000 0000  ................
+00001eb0: 0000 0000 0000 0000 0800 0000 0000 0000  ................
+00001ec0: 0000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001ed0: 0300 0000 0000 0000 200e 6000 0000 0000  ........ .`.....
+00001ee0: 200e 0000 0000 0000 0800 0000 0000 0000   ...............
+00001ef0: 0000 0000 0000 0000 0800 0000 0000 0000  ................
+00001f00: 0000 0000 0000 0000 3f00 0000 0600 0000  ........?.......
+00001f10: 0300 0000 0000 0000 280e 6000 0000 0000  ........(.`.....
+00001f20: 280e 0000 0000 0000 3f01 0000 0000 0000  (.......?.......
+00001f30: 0600 0000 0000 0000 0800 0000 0000 0000  ................
+00001f40: 1000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001f50: 0300 0000 0000 0000 3f0f 6000 0000 0000  ........?.`.....
+00001f60: 3f0f 0000 0000 0000 0800 0000 0000 0000  ?...............
+00001f70: 0000 0000 0000 0000 0800 0000 0000 0000  ................
+00001f80: 0800 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001f90: 0300 0000 0000 0000 0010 6000 0000 0000  ..........`.....
+00001fa0: 0010 0000 0000 0000 3000 0000 0000 0000  ........0.......
+00001fb0: 0000 0000 0000 0000 0800 0000 0000 0000  ................
+00001fc0: 0800 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00001fd0: 0300 0000 0000 0000 3010 6000 0000 0000  ........0.`.....
+00001fe0: 3010 0000 0000 0000 0400 0000 0000 0000  0...............
+00001ff0: 0000 0000 0000 0000 0100 0000 0000 0000  ................
+00002000: 0000 0000 0000 0000 3f00 0000 0800 0000  ........?.......
+00002010: 0300 0000 0000 0000 3410 6000 0000 0000  ........4.`.....
+00002020: 3410 0000 0000 0000 0400 0000 0000 0000  4...............
+00002030: 0000 0000 0000 0000 0100 0000 0000 0000  ................
+00002040: 0000 0000 0000 0000 3f00 0000 0100 0000  ........?.......
+00002050: 3000 0000 0000 0000 0000 0000 0000 0000  0...............
+00002060: 3410 0000 0000 0000 2d00 0000 0000 0000  4.......-.......
+00002070: 0000 0000 0000 0000 0100 0000 0000 0000  ................
+00002080: 0100 0000 0000 0000 1100 0000 0300 0000  ................
+00002090: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000020a0: 6110 0000 0000 0000 0801 0000 0000 0000  a...............
+000020b0: 0000 0000 0000 0000 0100 0000 0000 0000  ................
+000020c0: 0000 0000 0000 0000 0100 0000 0200 0000  ................
+000020d0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000020e0: 7011 0000 0000 0000 1806 0000 0000 0000  p...............
+000020f0: 1d00 0000 2d00 0000 0800 0000 0000 0000  ....-...........
+00002100: 1800 0000 0000 0000 0900 0000 0300 0000  ................
+00002110: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00002120: 3f17 0000 0000 0000 3f02 0000 0000 0000  ?.......?.......
+00002130: 0000 0000 0000 0000 0100 0000 0000 0000  ................
+00002140: 0000 0000 0000 0000 0a                   .........
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../linux/vim.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../blockchain/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../linux/vim.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../blockchain/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
