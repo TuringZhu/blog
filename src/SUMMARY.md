@@ -33,4 +33,5 @@
   - [Bother](life/bother.md)
 - [documents](documents/index.md)
   - [簡貞 - 相忘于江湖](documents/jianzhen_xiangwangyujianghu.md)
-  - [李斯 - 諫逐客書](lisi_jianzhukeshu.md) 
+  - [李斯 - 諫逐客書](documents/lisi_jianzhukeshu.md)
+
