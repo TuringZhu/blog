@@ -1,6 +1,6 @@
 # Configure Static IP On CentOS7
 
-- file path: /etc/sysconfig/network-scripts/ifcfg-{{network-name}}
+- file path: `/etc/sysconfig/network-scripts/ifcfg-{{network-name}}`
 
 ```
 
