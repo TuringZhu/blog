@@ -5,6 +5,7 @@
 - [Network](network/index.md)
 - [Data Structure](data_structure/index.md)
 - [Algorithm](algorithm/index.md)
+  - [gcd](algorithm/gcd.md)
 - [Database](database/index.md)
   - [redis](database/redis/index.md)
   - [mysql](database/mysql/index.md)

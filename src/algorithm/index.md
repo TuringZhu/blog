@@ -1,3 +1,3 @@
 # Algorithm
 
-- [gcd](gcd.md)
+- [get greatest common divisor(GCD) by Euclidean algorithm](gcd.md)
