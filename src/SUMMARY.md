@@ -28,6 +28,7 @@
 - [Linux](linux/index.md)
   - [vim](linux/vim.md)
   - [how a executable binary generated](linux/how_a_program_gengerate.md)
+  - [ssh login without password](linux/ssh_login_without_password.md)
 - [Block Chain](blockchain/index.md)
 - [Others](others/index.md)
   - [markdown](others/markdown.md)
