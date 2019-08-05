@@ -96,3 +96,30 @@ table:
 
 - how to find parent from current node?
 - how to find all children from current node? 
+
+### Question about consistency between cache and database.
+
+第一，之前想错了，
+
+
+之前认为，cache是为了提供更快速的查询而提供服务的，所以，如果cache挂掉，那么，只不过是DB层有压力而已，应用应该正常对外服务。
+
+第二：现在纠正过来如果下：
+
+查询：优先查询cache，不存在则查询DB，同时同步写到cache里面。
+
+更新，删除，插入：同步更新db和cache，保证同时成功和同时失败。
+
+所以有以下几个情况
+
+1. 更新cache成功，更新db失败：则删除cache里面的数据，置状态为失败
+2. 更新cache成功，更新db成功：置状态为成功
+3. 更新cache失败，更新db失败：置状态为失败
+4. 更新cache失败，更新db成功：置状态为失败，同时db中回滚或删除对应数据
+
+
+新的问题：
+
+1. 针对上述 情况1，如果删除cache失败，情况应该如何处理，这样的话，db和cache无法保持数据一致性。
+2. 针对上述 情况2，如果删除或回滚db失败，情况又应该如何处理，这样的话，db和cache无法保持数据一致性。
+3. 场景1
