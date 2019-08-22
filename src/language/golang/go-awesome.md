@@ -18,3 +18,4 @@
 
 - [dgrijalva/jwt-go](https://github.com/dgrijalva/jwt-go) -  `star 6093` | `fork 574` |  `issue 0 open 71 closed 0` | `PR 0` | `Commit 0`
 - [ugorji/go](https://github.com/ugorji/go) -  `star 1241` | `fork 190` |  `issue 0 open 3 closed 0` | `PR 0` | `Commit 0`
+- [secure](https://github.com/unrolled/secure)
