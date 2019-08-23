@@ -20,7 +20,8 @@ import time
 from random import randint
 
 
-file_path = "/Users/Turing/Desktop/project/github/rust/blog/src/language/golang/go-awesome.md"
+file_path = "./go-awesome.md"
+TOKEN = "94831b637be5b5058d7b1b9c599eb7967dbb5b14"
 
 
 def get_repo_info(string: str) -> dict:
@@ -33,7 +34,7 @@ def get_repo_info(string: str) -> dict:
     result["respository"] = match.group(2)
 
     headers = {
-        "Authorization": "token 0aff2d6d2aa65ddd1c2559874c4621e59db3ad7e"
+        "Authorization": "token {}".format(TOKEN)
     }
     params = {
         "q": "repo:{}/{}".format(match.group(1),match.group(2))

@@ -153,6 +153,18 @@
 <ul>
 <li><a href="requirements.html">requirement.txt &amp; pyvenv</a></li>
 </ul>
+<h3><a class="header" href="#set-python-script-file-encoding" id="set-python-script-file-encoding">set python script file encoding</a></h3>
+<blockquote>
+<p>please set to <code>utf-8</code></p>
+</blockquote>
+<p>More precisely, the first or second line must match the following regular expression:</p>
+<pre><code>^[ \t\f]*#.*?coding[:=][ \t]*([-_.a-zA-Z0-9]+)
+</code></pre>
+<ol>
+<li><code># coding=&lt;encoding name&gt;</code></li>
+<li><code># -*- coding: &lt;encoding name&gt; -*-</code> (using formats recognized by popular editors)</li>
+<li><code># vim: set fileencoding=&lt;encoding name&gt; :</code></li>
+</ol>
 <p>python module 
 PYTHONPATH</p>
 <p>sys.path</p>

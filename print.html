@@ -511,6 +511,18 @@ Tell your code reader what you writed.
 <ul>
 <li><a href="language/python/requirements.html">requirement.txt &amp; pyvenv</a></li>
 </ul>
+<h3><a class="header" href="#set-python-script-file-encoding" id="set-python-script-file-encoding">set python script file encoding</a></h3>
+<blockquote>
+<p>please set to <code>utf-8</code></p>
+</blockquote>
+<p>More precisely, the first or second line must match the following regular expression:</p>
+<pre><code>^[ \t\f]*#.*?coding[:=][ \t]*([-_.a-zA-Z0-9]+)
+</code></pre>
+<ol>
+<li><code># coding=&lt;encoding name&gt;</code></li>
+<li><code># -*- coding: &lt;encoding name&gt; -*-</code> (using formats recognized by popular editors)</li>
+<li><code># vim: set fileencoding=&lt;encoding name&gt; :</code></li>
+</ol>
 <p>python module 
 PYTHONPATH</p>
 <p>sys.path</p>
@@ -597,24 +609,29 @@ General Options:
 <h1><a class="header" href="#go-awesome" id="go-awesome">GO Awesome</a></h1>
 <h2><a class="header" href="#web-framework" id="web-framework">Web Framework</a></h2>
 <ul>
-<li><a href="https://github.com/gin-gonic/gin">gin-gonic/gin</a> -  <code>star 30444</code> | <code>fork 3509</code> |  <code>issue 0 open 205 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
-<li><a href="https://github.com/labstack/echo">labstack/echo</a> -  <code>star 14818</code> | <code>fork 1353</code> |  <code>issue 0 open 30 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
-<li><a href="https://github.com/astaxie/beego">astaxie/beego</a> -  <code>star 21613</code> | <code>fork 4380</code> |  <code>issue 0 open 699 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/gin-gonic/gin">gin-gonic/gin</a> -  <code>star 30479</code> | <code>fork 3511</code> |  <code>issue 0 open 206 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/labstack/echo">labstack/echo</a> -  <code>star 14828</code> | <code>fork 1355</code> |  <code>issue 0 open 30 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/astaxie/beego">astaxie/beego</a> -  <code>star 21625</code> | <code>fork 4382</code> |  <code>issue 0 open 699 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
 </ul>
 <h2><a class="header" href="#orm" id="orm">ORM</a></h2>
 <ul>
-<li><a href="https://github.com/jinzhu/gorm">jinzhu/gorm</a> -  <code>star 14870</code> | <code>fork 1689</code> |  <code>issue 0 open 471 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/jinzhu/gorm">jinzhu/gorm</a> -  <code>star 14886</code> | <code>fork 1689</code> |  <code>issue 0 open 472 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
 </ul>
 <h2><a class="header" href="#validation" id="validation">Validation</a></h2>
 <ul>
-<li><a href="https://github.com/go-playground/validator">go-playground/validator</a> -  <code>star 3583</code> | <code>fork 320</code> |  <code>issue 0 open 57 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
-<li><a href="https://github.com/asaskevich/govalidator">asaskevich/govalidator</a> -  <code>star 3574</code> | <code>fork 363</code> |  <code>issue 0 open 99 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/go-playground/validator">go-playground/validator</a> -  <code>star 3587</code> | <code>fork 321</code> |  <code>issue 0 open 57 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/asaskevich/govalidator">asaskevich/govalidator</a> -  <code>star 3582</code> | <code>fork 364</code> |  <code>issue 0 open 101 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+</ul>
+<h2><a class="header" href="#msgpack" id="msgpack">Msgpack</a></h2>
+<ul>
+<li><a href="https://github.com/ugorji/go">ugorji/go</a> -  <code>star 1241</code> | <code>fork 190</code> |  <code>issue 0 open 3 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/tinylib/msgp">tinylib/msgp</a> -  <code>star 1016</code> | <code>fork 107</code> |  <code>issue 0 open 48 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/vmihailenco/msgpack">vmihailenco/msgpack</a> -  <code>star 927</code> | <code>fork 119</code> |  <code>issue 0 open 6 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
 </ul>
 <h2><a class="header" href="#other" id="other">Other</a></h2>
 <ul>
-<li><a href="https://github.com/dgrijalva/jwt-go">dgrijalva/jwt-go</a> -  <code>star 6093</code> | <code>fork 574</code> |  <code>issue 0 open 71 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
-<li><a href="https://github.com/ugorji/go">ugorji/go</a> -  <code>star 1241</code> | <code>fork 190</code> |  <code>issue 0 open 3 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
-<li><a href="https://github.com/unrolled/secure">secure</a></li>
+<li><a href="https://github.com/dgrijalva/jwt-go">dgrijalva/jwt-go</a> -  <code>star 6101</code> | <code>fork 574</code> |  <code>issue 0 open 73 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
+<li><a href="https://github.com/unrolled/secure">unrolled/secure</a> -  <code>star 1220</code> | <code>fork 84</code> |  <code>issue 0 open 0 closed 0</code> | <code>PR 0</code> | <code>Commit 0</code></li>
 </ul>
 <h1><a class="header" href="#rust" id="rust">Rust</a></h1>
 <h1><a class="header" href="#shell-command" id="shell-command">shell command</a></h1>
@@ -628,6 +645,18 @@ General Options:
 <ul>
 <li><a href="life/music.html">Music</a></li>
 <li><a href="life/bother">Bother</a></li>
+</ul>
+<h2><a class="header" href="#我造的词" id="我造的词">我造的词</a></h2>
+<ul>
+<li><strong>雾草</strong>(2016) - <code>我操</code>的文明用法。</li>
+<li><strong>舔妹</strong>(2019-04) - <code>舔狗</code>和追自己喜欢的<code>妹子的合成词</code>, 毕竟自己说自己追自己喜欢的妹子的行为为舔狗不雅。</li>
+<li><strong>信息原始人</strong> - 指当今生活在信息时代但依然过那种旧时接收信息的生活方式，如我爸依然是手机时代和电视机时代的人，当下的领导为了保护个人信息而以现金付帐为主的行为。</li>
+<li><strong>带娃妹</strong>(2019-08) - 指小学老师、幼师或相关早教机构的在职人员、学生等的女性。</li>
+<li><strong>戳饭</strong>(2019-04?05) - 去吃饭, 来源于吃米饭的地方用饭撬(台州三门方言)打米饭,有戳这个动作。(该词为台州三门一朋友造)</li>
+<li><strong>雨果无瓜</strong>(2019-07) - 与我无关。根据<code>雨女无瓜</code>而来。<code>雨女无瓜</code>指<code>与你无关</code>,来源于《巴啦啦小魔仙》游乐王子生硬的普通话。</li>
+<li><strong>ODBK</strong> - OK。DB为计算机专业词汇, <code>Database</code>的缩写，数据库。来源词汇不怎么文明，此处不再叙述。</li>
+<li><strong>戳叽</strong> - 挑逗，诙谐词，无贬义，逗人开心，逗一下，皮一下的意思。</li>
+<li><strong>程序员思维</strong> - 指做事情风格像计算机或程序一样，提供事情所需信息，描述事情，期望结果和预估可能结果，类似于程序和计算机的输入，以及做算法训练题时的输入描述和输出描述。随后进行处理，做完之后告知事情提供方结果，即类似于程序和计算机的输出，随后结束。</li>
 </ul>
 <h1><a class="header" href="#music" id="music">Music</a></h1>
 <blockquote>
