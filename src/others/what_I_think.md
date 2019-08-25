@@ -131,4 +131,6 @@ table:
 2. msgpack的解释是`MessagePack is an efficient binary serialization format. It's like JSON. but fast and small.`
 3. msgpack 是否适合在项目中使用？目前感觉是不适合，主要是因为以接口为主，对前端后端进行交互，json来自于javascript，所以前端解析后端传输数据上比较方便，json广泛被使用，非常成熟，msgpack还在发展中，相关技术还不成熟，
 4. so msgpack存在的意义是什么？
-5. 看懂[](https://github.com/msgpack/msgpack/blob/master/spec.md)(https://github.com/msgpack/msgpack/blob/master/spec.md)的数据格式即可，甚至是可以自己实现
+5. 看懂[https://github.com/msgpack/msgpack/blob/master/spec.md](https://github.com/msgpack/msgpack/blob/master/spec.md)的数据格式即可，甚至是可以自己实现
+6. 协议 [msgpack](https://github.com/msgpack/msgpack)
+7. golang实现 [vmihailenco/msgpack](https://github.com/vmihailenco/msgpack)
