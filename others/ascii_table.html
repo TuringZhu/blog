@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ASCII Table - Turing Zhu's Blog</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Record Turing Zhu's life and learning note.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="rust">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../algorithm/index.html"><strong aria-hidden="true">1.</strong> Algorithm</a></li><li><ol class="section"><li><a href="../algorithm/gcd.html"><strong aria-hidden="true">1.1.</strong> gcd</a></li></ol></li><li><a href="../blockchain/index.html"><strong aria-hidden="true">2.</strong> Block Chain</a></li><li><a href="../data_structure/index.html"><strong aria-hidden="true">3.</strong> Data Structure</a></li><li><a href="../database/index.html"><strong aria-hidden="true">4.</strong> Database</a></li><li><ol class="section"><li><a href="../database/redis/index.html"><strong aria-hidden="true">4.1.</strong> redis</a></li><li><a href="../database/mysql/index.html"><strong aria-hidden="true">4.2.</strong> mysql</a></li><li><a href="../database/mongodb/index.html"><strong aria-hidden="true">4.3.</strong> mongodb</a></li><li><a href="../database/infuxdb/index.html"><strong aria-hidden="true">4.4.</strong> influxdb</a></li></ol></li><li><a href="../devops/index.html"><strong aria-hidden="true">5.</strong> Devops</a></li><li><ol class="section"><li><a href="../devops/api_doc_spec.html"><strong aria-hidden="true">5.1.</strong> API-DOC-SPEC</a></li><li><a href="../devops/code_clean.html"><strong aria-hidden="true">5.2.</strong> Code Clean Note</a></li></ol></li><li><a href="../documents/index.html"><strong aria-hidden="true">6.</strong> Documents</a></li><li><ol class="section"><li><a href="../documents/jianzhen_xiangwangyujianghu.html"><strong aria-hidden="true">6.1.</strong> 簡貞 - 相忘于江湖</a></li><li><a href="../documents/lisi_jianzhukeshu.html"><strong aria-hidden="true">6.2.</strong> 李斯 - 諫逐客書</a></li></ol></li><li><a href="../git/index.html"><strong aria-hidden="true">7.</strong> Git</a></li><li><ol class="section"><li><a href="../git/commit_specification.html"><strong aria-hidden="true">7.1.</strong> commit specification</a></li><li><a href="../git/hooks.html"><strong aria-hidden="true">7.2.</strong> hooks</a></li><li><a href="../git/syncing_a_fork.html"><strong aria-hidden="true">7.3.</strong> syncing a fork</a></li></ol></li><li><a href="../introduction.html"><strong aria-hidden="true">8.</strong> Introduction</a></li><li><a href="../language/index.html"><strong aria-hidden="true">9.</strong> Language</a></li><li><ol class="section"><li><a href="../language/python/index.html"><strong aria-hidden="true">9.1.</strong> python</a></li><li><ol class="section"><li><a href="../language/python/requirements.html"><strong aria-hidden="true">9.1.1.</strong> requirements</a></li></ol></li><li><a href="../language/golang/index.html"><strong aria-hidden="true">9.2.</strong> golang</a></li><li><ol class="section"><li><a href="../language/golang/go-awesome.html"><strong aria-hidden="true">9.2.1.</strong> go-awesome</a></li></ol></li><li><a href="../language/rust/index.html"><strong aria-hidden="true">9.3.</strong> Rust</a></li><li><a href="../language/shell/index.html"><strong aria-hidden="true">9.4.</strong> shell</a></li></ol></li><li><a href="../life/index.html"><strong aria-hidden="true">10.</strong> Life</a></li><li><ol class="section"><li><a href="../life/music.html"><strong aria-hidden="true">10.1.</strong> Music</a></li><li><a href="../life/bother.html"><strong aria-hidden="true">10.2.</strong> Bother</a></li></ol></li><li><a href="../linux/index.html"><strong aria-hidden="true">11.</strong> Linux</a></li><li><ol class="section"><li><a href="../linux/vim.html"><strong aria-hidden="true">11.1.</strong> vim</a></li><li><a href="../linux/how_a_program_gengerate.html"><strong aria-hidden="true">11.2.</strong> how a executable binary generated</a></li><li><a href="../linux/ssh_login_without_password.html"><strong aria-hidden="true">11.3.</strong> ssh login without password</a></li></ol></li><li><a href="../mac/index.html"><strong aria-hidden="true">12.</strong> MAC</a></li><li><ol class="section"><li><a href="../mac/shotcut.html"><strong aria-hidden="true">12.1.</strong> shotcut</a></li></ol></li><li><a href="../network/index.html"><strong aria-hidden="true">13.</strong> Network</a></li><li><a href="../os/index.html"><strong aria-hidden="true">14.</strong> Operating System</a></li><li><a href="../others/index.html"><strong aria-hidden="true">15.</strong> Others</a></li><li><ol class="section"><li><a href="../others/markdown.html"><strong aria-hidden="true">15.1.</strong> markdown</a></li><li><a href="../others/time_format.html"><strong aria-hidden="true">15.2.</strong> time format</a></li><li><a href="../others/regular-expression.html"><strong aria-hidden="true">15.3.</strong> Regular Expression</a></li><li><a href="../others/ascii_table.html" class="active"><strong aria-hidden="true">15.4.</strong> ASCII Table</a></li><li><a href="../others/what_I_think.html"><strong aria-hidden="true">15.5.</strong> What I think Now</a></li></ol></li><li><a href="../test/index.html"><strong aria-hidden="true">16.</strong> Test</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Turing Zhu's Blog</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                            <a href="https://github.com/Turing-Chu/blog" title="Git repository" aria-label="Git repository">
+                                <i id="git-repository-button" class="fa fa-github"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <table><thead><tr><th>DEC</th><th>HEX</th><th>CHAR</th><th></th><th>DEC</th><th>HEX</th><th>CHAR</th><th></th><th>DEC</th><th>HEX</th><th>CHAR</th><th></th><th>DEC</th><th>HEX</th><th>CHAR</th></tr></thead><tbody>
+<tr><td>0</td><td><strong>00</strong></td><td>NUL (null)</td><td></td><td>32</td><td><strong>20</strong></td><td>SPACE</td><td></td><td>64</td><td><strong>40</strong></td><td><code>@</code></td><td></td><td>96</td><td><strong>60</strong></td><td>```</td></tr>
+<tr><td>1</td><td><strong>01</strong></td><td>SOH (start of heading)</td><td></td><td>33</td><td><strong>21</strong></td><td><code>!</code></td><td></td><td>65</td><td><strong>41</strong></td><td><code>A</code></td><td></td><td>97</td><td><strong>61</strong></td><td><code>a</code></td></tr>
+<tr><td>2</td><td><strong>02</strong></td><td>STX (start of text)</td><td></td><td>34</td><td><strong>22</strong></td><td><code>&quot;</code></td><td></td><td>66</td><td><strong>42</strong></td><td><code>B</code></td><td></td><td>98</td><td><strong>62</strong></td><td><code>b</code></td></tr>
+<tr><td>3</td><td><strong>03</strong></td><td>ETX (end of text)</td><td></td><td>35</td><td><strong>23</strong></td><td><code>#</code></td><td></td><td>67</td><td><strong>43</strong></td><td><code>C</code></td><td></td><td>99</td><td><strong>63</strong></td><td><code>c</code></td></tr>
+<tr><td>4</td><td><strong>04</strong></td><td>EOT (end of transmission)</td><td></td><td>36</td><td><strong>24</strong></td><td><code>$</code></td><td></td><td>68</td><td><strong>44</strong></td><td><code>D</code></td><td></td><td>100</td><td><strong>64</strong></td><td><code>d</code></td></tr>
+<tr><td>5</td><td><strong>05</strong></td><td>ENQ (enquiry)</td><td></td><td>37</td><td><strong>25</strong></td><td><code>%</code></td><td></td><td>69</td><td><strong>45</strong></td><td><code>E</code></td><td></td><td>101</td><td><strong>65</strong></td><td><code>e</code></td></tr>
+<tr><td>6</td><td><strong>06</strong></td><td>ACK (acknowledge)</td><td></td><td>38</td><td><strong>26</strong></td><td><code>&amp;</code></td><td></td><td>70</td><td><strong>46</strong></td><td><code>F</code></td><td></td><td>102</td><td><strong>66</strong></td><td><code>f</code></td></tr>
+<tr><td>7</td><td><strong>07</strong></td><td>BEL (bell)</td><td></td><td>39</td><td><strong>27</strong></td><td><code>'</code></td><td></td><td>71</td><td><strong>47</strong></td><td><code>G</code></td><td></td><td>103</td><td><strong>67</strong></td><td><code>g</code></td></tr>
+<tr><td>8</td><td><strong>08</strong></td><td>BS  (backspace)</td><td></td><td>40</td><td><strong>28</strong></td><td><code>(</code></td><td></td><td>72</td><td><strong>48</strong></td><td><code>H</code></td><td></td><td>104</td><td><strong>68</strong></td><td><code>h</code></td></tr>
+<tr><td>9</td><td><strong>09</strong></td><td>TAB (horizontal tab)</td><td></td><td>41</td><td><strong>29</strong></td><td><code>)</code></td><td></td><td>73</td><td><strong>49</strong></td><td><code>I</code></td><td></td><td>105</td><td><strong>69</strong></td><td><code>i</code></td></tr>
+<tr><td>10</td><td><strong>0A</strong></td><td>LF  (NL line feed, new line)</td><td></td><td>42</td><td><strong>2A</strong></td><td><code>*</code></td><td></td><td>74</td><td><strong>4A</strong></td><td><code>J</code></td><td></td><td>106</td><td><strong>6A</strong></td><td><code>j</code></td></tr>
+<tr><td>11</td><td><strong>0B</strong></td><td>VT  (vertical tab)</td><td></td><td>43</td><td><strong>2B</strong></td><td><code>+</code></td><td></td><td>75</td><td><strong>4B</strong></td><td><code>K</code></td><td></td><td>107</td><td><strong>6B</strong></td><td><code>k</code></td></tr>
+<tr><td>12</td><td><strong>0C</strong></td><td>FF  (NP form feed, new page)</td><td></td><td>44</td><td><strong>2C</strong></td><td><code>,</code></td><td></td><td>76</td><td><strong>4C</strong></td><td><code>L</code></td><td></td><td>108</td><td><strong>6C</strong></td><td><code>l</code></td></tr>
+<tr><td>13</td><td><strong>0D</strong></td><td>CR  (carriage return)</td><td></td><td>45</td><td><strong>2D</strong></td><td><code>-</code></td><td></td><td>77</td><td><strong>4D</strong></td><td><code>M</code></td><td></td><td>109</td><td><strong>6D</strong></td><td><code>m</code></td></tr>
+<tr><td>14</td><td><strong>0E</strong></td><td>SO  (shift out)</td><td></td><td>46</td><td><strong>2E</strong></td><td><code>.</code></td><td></td><td>78</td><td><strong>4E</strong></td><td><code>N</code></td><td></td><td>110</td><td><strong>6E</strong></td><td><code>n</code></td></tr>
+<tr><td>15</td><td><strong>0F</strong></td><td>SI  (shift in)</td><td></td><td>47</td><td><strong>2F</strong></td><td><code>/</code></td><td></td><td>79</td><td><strong>4F</strong></td><td><code>O</code></td><td></td><td>111</td><td><strong>6F</strong></td><td><code>o</code></td></tr>
+<tr><td>16</td><td><strong>10</strong></td><td>DLE (data link escape)</td><td></td><td>48</td><td><strong>30</strong></td><td><code>0</code></td><td></td><td>80</td><td><strong>50</strong></td><td><code>P</code></td><td></td><td>112</td><td><strong>70</strong></td><td><code>p</code></td></tr>
+<tr><td>17</td><td><strong>11</strong></td><td>DC1 (device control 1)</td><td></td><td>49</td><td><strong>31</strong></td><td><code>1</code></td><td></td><td>81</td><td><strong>51</strong></td><td><code>Q</code></td><td></td><td>113</td><td><strong>71</strong></td><td><code>q</code></td></tr>
+<tr><td>18</td><td><strong>12</strong></td><td>DC2 (device control 2)</td><td></td><td>50</td><td><strong>32</strong></td><td><code>2</code></td><td></td><td>82</td><td><strong>52</strong></td><td><code>R</code></td><td></td><td>114</td><td><strong>72</strong></td><td><code>r</code></td></tr>
+<tr><td>19</td><td><strong>13</strong></td><td>DC3 (device control 3)</td><td></td><td>51</td><td><strong>33</strong></td><td><code>3</code></td><td></td><td>83</td><td><strong>53</strong></td><td><code>S</code></td><td></td><td>115</td><td><strong>73</strong></td><td><code>s</code></td></tr>
+<tr><td>20</td><td><strong>14</strong></td><td>DC4 (device control 4)</td><td></td><td>52</td><td><strong>34</strong></td><td><code>4</code></td><td></td><td>84</td><td><strong>54</strong></td><td><code>T</code></td><td></td><td>116</td><td><strong>74</strong></td><td><code>t</code></td></tr>
+<tr><td>21</td><td><strong>15</strong></td><td>NAK (negative acknowledge)</td><td></td><td>53</td><td><strong>35</strong></td><td><code>5</code></td><td></td><td>85</td><td><strong>55</strong></td><td><code>U</code></td><td></td><td>117</td><td><strong>75</strong></td><td><code>u</code></td></tr>
+<tr><td>22</td><td><strong>16</strong></td><td>SYN (synchronous idle)</td><td></td><td>54</td><td><strong>36</strong></td><td><code>6</code></td><td></td><td>86</td><td><strong>56</strong></td><td><code>V</code></td><td></td><td>118</td><td><strong>76</strong></td><td><code>v</code></td></tr>
+<tr><td>23</td><td><strong>17</strong></td><td>ETB (end of trans. block)</td><td></td><td>55</td><td><strong>37</strong></td><td><code>7</code></td><td></td><td>87</td><td><strong>57</strong></td><td><code>W</code></td><td></td><td>119</td><td><strong>77</strong></td><td><code>w</code></td></tr>
+<tr><td>24</td><td><strong>18</strong></td><td>CAN (cancel)</td><td></td><td>56</td><td><strong>38</strong></td><td><code>8</code></td><td></td><td>88</td><td><strong>58</strong></td><td><code>X</code></td><td></td><td>120</td><td><strong>78</strong></td><td><code>x</code></td></tr>
+<tr><td>25</td><td><strong>19</strong></td><td>EM  (end of medium)</td><td></td><td>57</td><td><strong>39</strong></td><td><code>9</code></td><td></td><td>89</td><td><strong>59</strong></td><td><code>Y</code></td><td></td><td>121</td><td><strong>79</strong></td><td><code>y</code></td></tr>
+<tr><td>26</td><td><strong>1A</strong></td><td>SUB (substitute)</td><td></td><td>58</td><td><strong>3A</strong></td><td><code>:</code></td><td></td><td>90</td><td><strong>5A</strong></td><td><code>Z</code></td><td></td><td>122</td><td><strong>7A</strong></td><td><code>z</code></td></tr>
+<tr><td>27</td><td><strong>1B</strong></td><td>ESC (escape)</td><td></td><td>59</td><td><strong>3B</strong></td><td><code>;</code></td><td></td><td>91</td><td><strong>5B</strong></td><td><code>[</code></td><td></td><td>123</td><td><strong>7B</strong></td><td><code>{</code></td></tr>
+<tr><td>28</td><td><strong>1C</strong></td><td>FS  (file separator)</td><td></td><td>60</td><td><strong>3C</strong></td><td><code>&lt;</code></td><td></td><td>92</td><td><strong>5C</strong></td><td><code></code></td><td></td><td>124</td><td><strong>7C</strong></td><td>`</td></tr>
+<tr><td>29</td><td><strong>1D</strong></td><td>GS  (group separator)</td><td></td><td>61</td><td><strong>3D</strong></td><td><code>=</code></td><td></td><td>93</td><td><strong>5D</strong></td><td><code>]</code></td><td></td><td>125</td><td><strong>7D</strong></td><td><code>}</code></td></tr>
+<tr><td>30</td><td><strong>1E</strong></td><td>RS  (record separator)</td><td></td><td>62</td><td><strong>3E</strong></td><td><code>&gt;</code></td><td></td><td>94</td><td><strong>5E</strong></td><td><code>^</code></td><td></td><td>126</td><td><strong>7E</strong></td><td><code>~</code></td></tr>
+<tr><td>31</td><td><strong>1F</strong></td><td>US  (unit separator)</td><td></td><td>63</td><td><strong>3F</strong></td><td><code>?</code></td><td></td><td>95</td><td><strong>5F</strong></td><td><code>_</code></td><td></td><td>127</td><td><strong>7F</strong></td><td>DEL</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../others/regular-expression.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../others/what_I_think.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../others/regular-expression.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../others/what_I_think.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
