@@ -123,3 +123,12 @@ table:
 1. 针对上述 情况1，如果删除cache失败，情况应该如何处理，这样的话，db和cache无法保持数据一致性。
 2. 针对上述 情况2，如果删除或回滚db失败，情况又应该如何处理，这样的话，db和cache无法保持数据一致性。
 3. 场景1
+
+
+### json vs. msgpack
+
+1. msgpack相对于json优点在哪里？目前发现是序列化后的数据比json短
+2. msgpack的解释是`MessagePack is an efficient binary serialization format. It's like JSON. but fast and small.`
+3. msgpack 是否适合在项目中使用？目前感觉是不适合，主要是因为以接口为主，对前端后端进行交互，json来自于javascript，所以前端解析后端传输数据上比较方便，json广泛被使用，非常成熟，msgpack还在发展中，相关技术还不成熟，
+4. so msgpack存在的意义是什么？
+5. 看懂[](https://github.com/msgpack/msgpack/blob/master/spec.md)(https://github.com/msgpack/msgpack/blob/master/spec.md)的数据格式即可，甚至是可以自己实现
