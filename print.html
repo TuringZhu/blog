@@ -3619,6 +3619,14 @@ func main() {
 <li>针对上述 情况2，如果删除或回滚db失败，情况又应该如何处理，这样的话，db和cache无法保持数据一致性。</li>
 <li>场景1</li>
 </ol>
+<h3><a class="header" href="#json-vs-msgpack" id="json-vs-msgpack">json vs. msgpack</a></h3>
+<ol>
+<li>msgpack相对于json优点在哪里？目前发现是序列化后的数据比json短</li>
+<li>msgpack的解释是<code>MessagePack is an efficient binary serialization format. It's like JSON. but fast and small.</code></li>
+<li>msgpack 是否适合在项目中使用？目前感觉是不适合，主要是因为以接口为主，对前端后端进行交互，json来自于javascript，所以前端解析后端传输数据上比较方便，json广泛被使用，非常成熟，msgpack还在发展中，相关技术还不成熟，</li>
+<li>so msgpack存在的意义是什么？</li>
+<li>看懂<a href="https://github.com/msgpack/msgpack/blob/master/spec.md"></a>(https://github.com/msgpack/msgpack/blob/master/spec.md)的数据格式即可，甚至是可以自己实现</li>
+</ol>
 <h1><a class="header" href="#test" id="test">Test</a></h1>
 <ul>
 <li>unit test: how to write and how to write better unit test?</li>
