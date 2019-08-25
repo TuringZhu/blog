@@ -1,6 +1,8 @@
 # time struct in golang
 
 > [type Time struct {](https://github.com/golang/go/blob/1a7c15fa6d5ce2d78d0f9f5050ee9dd1e29485df/src/time/time.go#L127)
+>
+> [Monotonic Clocks](https://golang.org/pkg/time/#hdr-Monotonic_Clocks)
 
 ```golang
 type Time struct {
