@@ -3,7 +3,7 @@
 - [Algorithm](algorithm/README.md)
   - [gcd](algorithm/gcd.md)
 - [Block Chain](blockchain/README.md)
-- [Data Structure](data_structure/README.md)
+- [Data Structure](data-structure/README.md)
 - [Database](database/README.md)
   - [redis](database/redis/README.md)
   - [mysql](database/mysql/README.md)
