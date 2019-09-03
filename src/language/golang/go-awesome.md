@@ -14,11 +14,6 @@
 - [go-playground/validator](https://github.com/go-playground/validator) -  `star 3587` | `fork 321` |  `issue 0 open 57 closed 0` | `PR 0` | `Commit 0`
 - [asaskevich/govalidator](https://github.com/asaskevich/govalidator) -  `star 3582` | `fork 364` |  `issue 0 open 101 closed 0` | `PR 0` | `Commit 0`
 
-## Msgpack
-- [ugorji/go](https://github.com/ugorji/go) -  `star 1241` | `fork 190` |  `issue 0 open 3 closed 0` | `PR 0` | `Commit 0`
-- [tinylib/msgp](https://github.com/tinylib/msgp) -  `star 1016` | `fork 107` |  `issue 0 open 48 closed 0` | `PR 0` | `Commit 0`
-- [vmihailenco/msgpack](https://github.com/vmihailenco/msgpack) -  `star 927` | `fork 119` |  `issue 0 open 6 closed 0` | `PR 0` | `Commit 0`
-
 ## Other
 
 - [dgrijalva/jwt-go](https://github.com/dgrijalva/jwt-go) -  `star 6101` | `fork 574` |  `issue 0 open 73 closed 0` | `PR 0` | `Commit 0`
