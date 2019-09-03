@@ -1,5 +1,6 @@
 # Summary
 
+- [Introduction](./introduction.md)
 - [Algorithm](algorithm/README.md)
   - [gcd](algorithm/gcd.md)
 - [Block Chain](blockchain/README.md)
@@ -19,7 +20,6 @@
   - [commit specification](git/commit_specification.md)
   - [hooks](git/hooks.md)
   - [syncing a fork](git/syncing_a_fork.md)
-- [Introduction](./introduction.md)
 - [Language](language/README.md)
   - [python](./language/python/README.md)
     - [requirements](./language/python/requirements.md)
