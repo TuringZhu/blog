@@ -19,7 +19,7 @@
 
 | item | specipitation | comment | 
 | --- | --- | --- |
-| file & directory | snake | 
+| file & directory | snake with `-` or `_` | 
 | URL | snake |
 | database | snake |
 | table | snake |
